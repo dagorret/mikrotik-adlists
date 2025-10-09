@@ -1,0 +1,49 @@
+name: Build unified adlist
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch & merge
+        run: |
+          mkdir -p build tmp
+          # bajar todas las fuentes
+          while read -r u; do
+            [ -z "$u" ] && continue
+            curl -fsSL "$u" >> tmp/raw.txt || true
+          done < sources.txt
+          # normalizar a dominios (acepta hosts/adblock/dominios simples)
+          cat tmp/raw.txt \
+            | tr -d '\r' \
+            | sed 's/#.*$//' \
+            | sed 's/^[[:space:]]*//' \
+            | awk 'NF' \
+            | sed -E 's/^\|\|([^/\^]+)\^.*$/\1/' \
+            | sed -E 's/^(0\.0\.0\.0|127\.0\.0\.1)[[:space:]]+//' \
+            | sed -E 's/^\[.*\]$//' \
+            | grep -E '^[A-Za-z0-9.-]+$' \
+            | tr 'A-Z' 'a-z' \
+            > tmp/domains.txt
+          # dedup
+          sort -u tmp/domains.txt > tmp/merged.txt
+          # aplicar whitelist (quitar permitidos)
+          if [ -f whitelist.txt ]; then
+            grep -vxFf whitelist.txt tmp/merged.txt > tmp/nowhite.txt || cp tmp/merged.txt tmp/nowhite.txt
+          else
+            cp tmp/merged.txt tmp/nowhite.txt
+          fi
+          # agregar blacklist propia
+          cat tmp/nowhite.txt blacklist.txt 2>/dev/null | sort -u > build/unified-domains.txt
+          # exportar estilo Adblock (bloquea dominio y subdominios)
+          awk '{print "||"$1"^"}' build/unified-domains.txt > build/unified-adblock.txt
+      - name: Commit build
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add build/
+          git commit -m "Daily build" || echo "No changes"
+          git push
