@@ -16,7 +16,7 @@ jobs:
             [ -z "$u" ] && continue
             curl -fsSL "$u" >> tmp/raw.txt || true
           done < sources.txt
-          # normalizar a dominios (acepta hosts/adblock/dominios simples)
+          # normalizar
           cat tmp/raw.txt \
             | tr -d '\r' \
             | sed 's/#.*$//' \
@@ -30,27 +30,15 @@ jobs:
             > tmp/domains.txt
           # dedup
           sort -u tmp/domains.txt > tmp/merged.txt
-          # aplicar whitelist (quitar permitidos)
+          # aplicar whitelist
           if [ -f whitelist.txt ]; then
             grep -vxFf whitelist.txt tmp/merged.txt > tmp/nowhite.txt || cp tmp/merged.txt tmp/nowhite.txt
           else
             cp tmp/merged.txt tmp/nowhite.txt
           fi
-          # agregar blacklist propia
+          # aplicar blacklist
           cat tmp/nowhite.txt blacklist.txt 2>/dev/null | sort -u > build/unified-domains.txt
-          # exportar estilo Adblock (bloquea dominio y subdominios)
-          awk '{print "||"$1"^"}' build/unified-domains.txt > build/unified-adblock.txt
-      - name: Commit build
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add build/
-          git commit -m "Daily build" || echo "No changes"
-          git push            cp tmp/merged.txt tmp/nowhite.txt
-          fi
-          # agregar blacklist propia
-          cat tmp/nowhite.txt blacklist.txt 2>/dev/null | sort -u > build/unified-domains.txt
-          # exportar estilo Adblock (bloquea dominio y subdominios)
+          # estilo Adblock
           awk '{print "||"$1"^"}' build/unified-domains.txt > build/unified-adblock.txt
       - name: Commit build
         run: |
