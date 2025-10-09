@@ -1,4 +1,14 @@
+# HaGeZi Pro — excelente balance entre tamaño y cobertura (~400k)
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.txt
+
+# StevenBlack base — hosts confiable y mantenida (~80k)
+https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+
+# OISD Small — muy limpia y deduplicada (~500k)
+https://small.oisd.nl/domainswild2
+
+# EasyList — solo reglas de publicidad (útil para formato adblock)
+https://easylist-downloads.adblockplus.org/easylist.txt
 https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
 https://big.oisd.nl/domainswild2
 https://easylist-downloads.adblockplus.org/easylist.txt
