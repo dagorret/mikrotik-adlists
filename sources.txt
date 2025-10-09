@@ -1,1 +1,4 @@
-sources.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.txt
+https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+https://big.oisd.nl/domainswild2
+https://easylist-downloads.adblockplus.org/easylist.txt
