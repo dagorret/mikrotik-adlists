@@ -5,7 +5,7 @@ https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.txt
 https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
 
 # OISD Small — muy limpia y deduplicada (~500k)
-#https://small.oisd.nl/domainswild2
+# https://small.oisd.nl/domainswild2
 
 # OISD Bi — muy limpia y deduplicada (~1mb)
 https://big.oisd.nl/domainswild2
