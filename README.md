@@ -32,5 +32,4 @@ Puede servir como fuente confiable de dominios maliciosos, de publicidad o indes
 ```shell
 /ip dns set cache-size=40000  # aumentar cache según el tamaño de las listas
 
-/ip dns adlist add url=https://raw.githubusercontent.com/dagorret/mikrotik-adlists/main/blacklist.txt ssl-verify=no
-/ip dns adlist add url=https://raw.githubusercontent.com/dagorret/mikrotik-adlists/main/whitelist.txt ssl-verify=no
+/ip dns adlist add url=https://raw.githubusercontent.com/dagorret/mikrotik-adlists/refs/heads/main/build/unified-domains.txt ssl-verify=no
