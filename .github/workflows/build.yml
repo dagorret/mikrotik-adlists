@@ -22,13 +22,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Compute tag name
+      - name: Compute tag
         id: meta
-        run: |
-          TAG="daily-$(date +%Y%m%d)"
-          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+        run: echo "tag=daily-$(date +%Y%m%d)" >> "$GITHUB_OUTPUT"
 
-      - name: Fetch & build lists
+      - name: Build lists
         shell: bash
         run: |
           set -euo pipefail
@@ -55,102 +53,50 @@ jobs:
             | sed -E 's#^https?://([^/]+).*#\1#' \
             | sed -E 's/^(0\.0\.0\.0|127\.0\.0\.1)[[:space:]]+//; s/^www\.//' \
             | sed -E 's/^\.+//' \
-            > tmp/candidates.txt
+            | tr A-Z a-z \
+            | sort -u > build/domains.txt
 
-          awk '{
-            d=tolower($0)
-            if (d ~ /[^a-z0-9.-]/) next
-            if (d ~ /^\./) next
-            if (d ~ /\.\./) next
-            n=split(d,a,".")
-            if (n<2) next
-            t=a[n]
-            if (t !~ /^[a-z]{2,63}$/) next
-            ok=1
-            for(i=1;i<=n;i++){
-              if (length(a[i])<1 || length(a[i])>63) { ok=0; break }
-              if (a[i] ~ /^-/ || a[i] ~ /-$/) { ok=0; break }
-            }
-            if (ok) print d
-          }' tmp/candidates.txt | sort -u > tmp/merged.valid.txt
-
-          if [ -f whitelist.txt ]; then
-            grep -vxFf whitelist.txt tmp/merged.valid.txt > tmp/nowhite.txt || cp tmp/merged.valid.txt tmp/nowhite.txt
-          else
-            cp tmp/merged.valid.txt tmp/nowhite.txt
-          fi
-
-          cat tmp/nowhite.txt blacklist.txt 2>/dev/null | sort -u > build/domains.txt
-
+          # Artefactos por sistema
           awk '{print "||"$1"^"}' build/domains.txt > build/unified-adblock.txt
           cp build/unified-adblock.txt build/unified-adguard.txt
-
           cp build/domains.txt build/technitium-domains.txt
           awk '{print "0.0.0.0 "$1}' build/domains.txt > build/technitium-hosts.txt
-
           awk '{print "0.0.0.0 "$1}' build/domains.txt > build/pihole-hosts.txt
           awk '{print "address=/"$1"/0.0.0.0"}' build/domains.txt > build/dnsmasq.conf
           awk '{print "local-zone: \""$1"\" always_nxdomain"}' build/domains.txt > build/unbound.conf
 
-          # ✅ Generar index.html sin errores de YAML
-          cat > build/index.html <<'EOF'
-<!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<title>Mikrotik Adlists — Blocklists Unificadas</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="https://avatars.githubusercontent.com/u/9919?s=200&v=4">
-<style>
-body { font-family: system-ui, sans-serif; max-width: 900px; margin: 2rem auto; line-height: 1.6; padding: 0 1rem; }
-h1, h2, h3 { color: #333; }
-code, pre { background: #f4f4f4; padding: 0.2rem 0.4rem; border-radius: 4px; }
-a { color: #0056b3; text-decoration: none; }
-a:hover { text-decoration: underline; }
-.badges img { margin-right: 0.4rem; }
-footer { margin-top: 3rem; font-size: 0.9em; color: #555; }
-</style>
-</head>
-<body>
-<h1>🧱 mikrotik-adlists — Blocklists unificadas para múltiples sistemas</h1>
-<div class="badges">
-  <a href="https://github.com/dagorret/mikrotik-adlists/actions"><img src="https://github.com/dagorret/mikrotik-adlists/actions/workflows/build.yml/badge.svg" alt="Build Status"></a>
-  <a href="https://dagorret.github.io/mikrotik-adlists/"><img src="https://img.shields.io/badge/GitHub%20Pages-online-brightgreen" alt="GitHub Pages"></a>
-  <a href="https://github.com/dagorret/mikrotik-adlists/releases"><img src="https://img.shields.io/github/v/release/dagorret/mikrotik-adlists?label=Última%20versión" alt="Release"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License"></a>
-  <a href="https://Dagorret.com.ar"><img src="https://img.shields.io/badge/Maintainer-Carlos%20Dagorret-blue" alt="Maintainer"></a>
-</div>
-<p>Listas de dominios y hosts generadas automáticamente cada 12 horas.</p>
-<ul>
-  <li><a href="unified-adblock.txt">AdBlock / uBlock</a></li>
-  <li><a href="unified-adguard.txt">AdGuard</a></li>
-  <li><a href="technitium-domains.txt">Technitium (dominios)</a></li>
-  <li><a href="technitium-hosts.txt">Technitium (hosts)</a></li>
-  <li><a href="pihole-hosts.txt">Pi-hole</a></li>
-  <li><a href="dnsmasq.conf">dnsmasq</a></li>
-  <li><a href="unbound.conf">Unbound</a></li>
-  <li><a href="domains.txt">Base de dominios</a></li>
-  <li><a href="SHA256SUMS">Checksums</a></li>
-</ul>
-<footer>
-<p>© 2025 Carlos Dagorret — Actualización automática cada 12 horas.</p>
-</footer>
-</body>
-</html>
-EOF
+          # Página principal sin heredoc (evita errores YAML)
+          rm -f build/index.html
+          echo '<!doctype html>' >> build/index.html
+          echo '<html lang="es"><head><meta charset="utf-8"><title>Mikrotik Adlists — Blocklists Unificadas</title><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font-family:sans-serif;max-width:900px;margin:2rem auto;line-height:1.6;padding:0 1rem}code,pre{background:#f4f4f4;padding:.2rem .4rem;border-radius:4px}a{color:#0056b3;text-decoration:none}a:hover{text-decoration:underline}footer{margin-top:2rem;font-size:.9em;color:#555}</style></head><body>' >> build/index.html
+          echo '<h1>🧱 mikrotik-adlists</h1>' >> build/index.html
+          echo '<p>Listas unificadas (AdBlock, AdGuard, Technitium, Pi-hole, dnsmasq, Unbound)</p>' >> build/index.html
+          echo '<ul>' >> build/index.html
+          echo '<li><a href="unified-adblock.txt">AdBlock / uBlock</a></li>' >> build/index.html
+          echo '<li><a href="unified-adguard.txt">AdGuard</a></li>' >> build/index.html
+          echo '<li><a href="technitium-domains.txt">Technitium dominios</a></li>' >> build/index.html
+          echo '<li><a href="technitium-hosts.txt">Technitium hosts</a></li>' >> build/index.html
+          echo '<li><a href="pihole-hosts.txt">Pi-hole</a></li>' >> build/index.html
+          echo '<li><a href="dnsmasq.conf">dnsmasq</a></li>' >> build/index.html
+          echo '<li><a href="unbound.conf">Unbound</a></li>' >> build/index.html
+          echo '<li><a href="domains.txt">Dominios base</a></li>' >> build/index.html
+          echo '<li><a href="SHA256SUMS">SHA256SUMS</a></li>' >> build/index.html
+          echo '</ul>' >> build/index.html
+          echo '<footer>© 2025 Carlos Dagorret — dagorret.com.ar</footer>' >> build/index.html
+          echo '</body></html>' >> build/index.html
 
+          # Checksums
           (cd build && sha256sum domains.txt unified-adblock.txt unified-adguard.txt technitium-domains.txt technitium-hosts.txt pihole-hosts.txt dnsmasq.conf unbound.conf > SHA256SUMS)
 
-      - name: Commit build artifacts
+      - name: Commit artifacts
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add build/
-          git commit -m "Daily build: lists + index.html" || echo "No changes"
+          git commit -m "Daily build" || echo "No changes"
           git push
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: build
 
@@ -159,8 +105,7 @@ EOF
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
+      - uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ needs.build.outputs.tag }}
           name: "Daily build ${{ needs.build.outputs.tag }}"
@@ -184,6 +129,5 @@ EOF
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - id: deployment
         uses: actions/deploy-pages@v4
