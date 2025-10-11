@@ -1,1 +1,14 @@
+# --- Infraestructura de CDN y repositorios legítimos ---
+cloudfront.net
+amazonaws.com
+docker.com
+docker.io
+github.com
+githubusercontent.com
+ubuntu.com
+snapcraft.io
+canonical.com
+spotify.com
+discord.com
+zoom.us
 
