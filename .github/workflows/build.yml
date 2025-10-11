@@ -2,13 +2,13 @@ name: Build unified adlist
 
 on:
   schedule:
-    - cron: "0 */12 * * *"   # cada 12 horas
+    - cron: "0 */12 * * *"
   workflow_dispatch:
 
 permissions:
-  contents: write        # commit/push + releases
-  pages: write           # publicar GitHub Pages
-  id-token: write        # requerido por deploy-pages
+  contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: "pages"
@@ -35,22 +35,17 @@ jobs:
           mkdir -p build tmp
           : > tmp/raw.txt
 
-          # 1) Descargar fuentes definidas en sources.txt
           if [ ! -f sources.txt ]; then
             echo "ERROR: falta sources.txt en la raíz del repo." >&2
             exit 1
           fi
+
           while read -r u; do
             [ -z "${u:-}" ] && continue
             curl -fsSL "$u" >> tmp/raw.txt || true
             echo >> tmp/raw.txt
           done < sources.txt
 
-          # 2) Normalizar y extraer candidatos de distintas sintaxis
-          #    - elimina CR, comentarios in-line, espacios y líneas vacías
-          #    - extrae desde AdBlock (||dominio^)
-          #    - extrae host desde URL (http(s)://host/...)
-          #    - elimina prefijos de hosts (0.0.0.0 / 127.0.0.1) y "www."
           cat tmp/raw.txt \
             | tr -d '\r' \
             | sed -E 's/[[:space:]]+#.*$//' \
@@ -62,11 +57,6 @@ jobs:
             | sed -E 's/^\.+//' \
             > tmp/candidates.txt
 
-          # 3) Validación FQDN estricta:
-          #    - solo [a-z0-9.-], minúsculas
-          #    - al menos un punto, sin ".."
-          #    - TLD alfabético 2..63
-          #    - etiquetas 1..63, sin guión al inicio/fin
           awk '{
             d=tolower($0)
             if (d ~ /[^a-z0-9.-]/) next
@@ -79,121 +69,86 @@ jobs:
             ok=1
             for(i=1;i<=n;i++){
               if (length(a[i])<1 || length(a[i])>63) { ok=0; break }
-              if (a[i] ~ /^-/ || a[i] ~ /-$/)       { ok=0; break }
+              if (a[i] ~ /^-/ || a[i] ~ /-$/) { ok=0; break }
             }
             if (ok) print d
-          }' tmp/candidates.txt \
-          | sort -u > tmp/merged.valid.txt
+          }' tmp/candidates.txt | sort -u > tmp/merged.valid.txt
 
-          # 4) Whitelist y Blacklist (opcionales)
           if [ -f whitelist.txt ]; then
             grep -vxFf whitelist.txt tmp/merged.valid.txt > tmp/nowhite.txt || cp tmp/merged.valid.txt tmp/nowhite.txt
           else
             cp tmp/merged.valid.txt tmp/nowhite.txt
           fi
+
           cat tmp/nowhite.txt blacklist.txt 2>/dev/null | sort -u > build/domains.txt
 
-          # 5) Artefactos por sistema
-          # AdBlock / uBlock / AdGuard syntax
           awk '{print "||"$1"^"}' build/domains.txt > build/unified-adblock.txt
           cp build/unified-adblock.txt build/unified-adguard.txt
 
-          # Technitium (dos variantes)
           cp build/domains.txt build/technitium-domains.txt
           awk '{print "0.0.0.0 "$1}' build/domains.txt > build/technitium-hosts.txt
 
-          # Pi-hole / dnsmasq
           awk '{print "0.0.0.0 "$1}' build/domains.txt > build/pihole-hosts.txt
           awk '{print "address=/"$1"/0.0.0.0"}' build/domains.txt > build/dnsmasq.conf
-
-          # Unbound
           awk '{print "local-zone: \""$1"\" always_nxdomain"}' build/domains.txt > build/unbound.conf
 
-          # 6) Página principal para GitHub Pages (index.html)
-          cat > build/index.html <<'HTML'
-          <!doctype html>
-          <html lang="es">
-          <head>
-          <meta charset="utf-8">
-          <title>Mikrotik Adlists — Blocklists Unificadas</title>
-          <meta name="viewport" content="width=device-width, initial-scale=1">
-          <link rel="icon" href="https://avatars.githubusercontent.com/u/9919?s=200&v=4">
-          <style>
-          body { font-family: system-ui, sans-serif; max-width: 900px; margin: 2rem auto; line-height: 1.6; padding: 0 1rem; }
-          h1, h2, h3 { color: #333; }
-          code, pre { background: #f4f4f4; padding: 0.2rem 0.4rem; border-radius: 4px; }
-          a { color: #0056b3; text-decoration: none; }
-          a:hover { text-decoration: underline; }
-          .badges img { margin-right: 0.4rem; }
-          footer { margin-top: 3rem; font-size: 0.9em; color: #555; }
-          </style>
-          </head>
-          <body>
-          <h1>🧱 mikrotik-adlists — Blocklists unificadas para múltiples sistemas</h1>
+          # ✅ Generar index.html sin errores de YAML
+          cat > build/index.html <<'EOF'
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Mikrotik Adlists — Blocklists Unificadas</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="https://avatars.githubusercontent.com/u/9919?s=200&v=4">
+<style>
+body { font-family: system-ui, sans-serif; max-width: 900px; margin: 2rem auto; line-height: 1.6; padding: 0 1rem; }
+h1, h2, h3 { color: #333; }
+code, pre { background: #f4f4f4; padding: 0.2rem 0.4rem; border-radius: 4px; }
+a { color: #0056b3; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.badges img { margin-right: 0.4rem; }
+footer { margin-top: 3rem; font-size: 0.9em; color: #555; }
+</style>
+</head>
+<body>
+<h1>🧱 mikrotik-adlists — Blocklists unificadas para múltiples sistemas</h1>
+<div class="badges">
+  <a href="https://github.com/dagorret/mikrotik-adlists/actions"><img src="https://github.com/dagorret/mikrotik-adlists/actions/workflows/build.yml/badge.svg" alt="Build Status"></a>
+  <a href="https://dagorret.github.io/mikrotik-adlists/"><img src="https://img.shields.io/badge/GitHub%20Pages-online-brightgreen" alt="GitHub Pages"></a>
+  <a href="https://github.com/dagorret/mikrotik-adlists/releases"><img src="https://img.shields.io/github/v/release/dagorret/mikrotik-adlists?label=Última%20versión" alt="Release"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License"></a>
+  <a href="https://Dagorret.com.ar"><img src="https://img.shields.io/badge/Maintainer-Carlos%20Dagorret-blue" alt="Maintainer"></a>
+</div>
+<p>Listas de dominios y hosts generadas automáticamente cada 12 horas.</p>
+<ul>
+  <li><a href="unified-adblock.txt">AdBlock / uBlock</a></li>
+  <li><a href="unified-adguard.txt">AdGuard</a></li>
+  <li><a href="technitium-domains.txt">Technitium (dominios)</a></li>
+  <li><a href="technitium-hosts.txt">Technitium (hosts)</a></li>
+  <li><a href="pihole-hosts.txt">Pi-hole</a></li>
+  <li><a href="dnsmasq.conf">dnsmasq</a></li>
+  <li><a href="unbound.conf">Unbound</a></li>
+  <li><a href="domains.txt">Base de dominios</a></li>
+  <li><a href="SHA256SUMS">Checksums</a></li>
+</ul>
+<footer>
+<p>© 2025 Carlos Dagorret — Actualización automática cada 12 horas.</p>
+</footer>
+</body>
+</html>
+EOF
 
-          <div class="badges">
-            <a href="https://github.com/dagorret/mikrotik-adlists/actions"><img src="https://github.com/dagorret/mikrotik-adlists/actions/workflows/build.yml/badge.svg" alt="Build Status"></a>
-            <a href="https://dagorret.github.io/mikrotik-adlists/"><img src="https://img.shields.io/badge/GitHub%20Pages-online-brightgreen" alt="GitHub Pages"></a>
-            <a href="https://github.com/dagorret/mikrotik-adlists/releases"><img src="https://img.shields.io/github/v/release/dagorret/mikrotik-adlists?label=Última%20versión" alt="Release"></a>
-            <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License"></a>
-            <a href="https://Dagorret.com.ar"><img src="https://img.shields.io/badge/Maintainer-Carlos%20Dagorret-blue" alt="Maintainer"></a>
-          </div>
-
-          <p>Listas de dominios y hosts generadas automáticamente cada 12 horas a partir de múltiples fuentes públicas.<br>
-          Compatibles con <strong>AdBlock / uBlock Origin</strong>, <strong>AdGuard</strong>, <strong>Technitium DNS Server</strong>, <strong>Pi-hole / dnsmasq</strong> y <strong>Unbound / BIND</strong>.</p>
-
-          <h2>📦 Formatos generados</h2>
-          <ul>
-            <li><a href="unified-adblock.txt">unified-adblock.txt</a> — AdBlock / uBlock (||dominio^)</li>
-            <li><a href="unified-adguard.txt">unified-adguard.txt</a> — AdGuard Home</li>
-            <li><a href="technitium-domains.txt">technitium-domains.txt</a> — Technitium DNS (dominio)</li>
-            <li><a href="technitium-hosts.txt">technitium-hosts.txt</a> — Technitium DNS (hosts)</li>
-            <li><a href="pihole-hosts.txt">pihole-hosts.txt</a> — Pi-hole / hosts</li>
-            <li><a href="dnsmasq.conf">dnsmasq.conf</a> — dnsmasq/OpenWRT</li>
-            <li><a href="unbound.conf">unbound.conf</a> — Unbound / BIND</li>
-            <li><a href="domains.txt">domains.txt</a> — Base de dominios</li>
-            <li><a href="SHA256SUMS">SHA256SUMS</a> — Verificación</li>
-          </ul>
-
-          <h2>🌐 Cómo suscribirse</h2>
-          <p>Podés usar directamente las URLs desde GitHub Pages:</p>
-          <pre><code>https://dagorret.github.io/mikrotik-adlists/unified-adblock.txt
-          https://dagorret.github.io/mikrotik-adlists/technitium-domains.txt
-          https://dagorret.github.io/mikrotik-adlists/pihole-hosts.txt
-          </code></pre>
-
-          <h3>Ejemplo para Unbound:</h3>
-          <pre><code>curl -o /etc/unbound/blocklist.conf https://dagorret.github.io/mikrotik-adlists/unbound.conf
-          sudo systemctl restart unbound</code></pre>
-
-          <h2>📘 Releases diarios</h2>
-          <p>También disponibles como versiones fijas:</p>
-          <pre><code>https://github.com/dagorret/mikrotik-adlists/releases/download/daily-YYYYMMDD/technitium-domains.txt</code></pre>
-
-          <h2>🧑‍💻 Autor</h2>
-          <p><strong>Carlos Dagorret</strong><br>
-          <a href="https://Dagorret.com.ar">https://Dagorret.com.ar</a><br>
-          <a href="https://github.com/dagorret">github.com/dagorret</a></p>
-
-          <footer>
-          <p>© 2025 Carlos Dagorret — Generado automáticamente cada 12 horas mediante GitHub Actions.</p>
-          </footer>
-          </body>
-          </html>
-          HTML
-
-          # 7) Checksums
-          (cd build && sha256sum domains.txt unified-adblock.txt unified-adguard.txt technitium-domains.txt technitium-hosts.txt pihole-hosts.txt dnsmasq.conf unbound.conf > SHA256SUMS || shasum -a 256 domains.txt unified-adblock.txt unified-adguard.txt technitium-domains.txt technitium-hosts.txt pihole-hosts.txt dnsmasq.conf unbound.conf > SHA256SUMS)
+          (cd build && sha256sum domains.txt unified-adblock.txt unified-adguard.txt technitium-domains.txt technitium-hosts.txt pihole-hosts.txt dnsmasq.conf unbound.conf > SHA256SUMS)
 
       - name: Commit build artifacts
         run: |
-          git config user.name  "github-actions[bot]"
+          git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add build/
-          git commit -m "Daily build: lists + configs + index.html" || echo "No changes"
+          git commit -m "Daily build: lists + index.html" || echo "No changes"
           git push
 
-      # Publicar artefactos como "Pages" artifact
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -204,169 +159,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      # Crea/actualiza el tag diario y publica un Release con los archivos de build/
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ needs.build.outputs.tag }}
           name: "Daily build ${{ needs.build.outputs.tag }}"
-          body: |
-            Blocklists generadas automáticamente (AdBlock, AdGuard, Technitium, Pi-hole, dnsmasq, Unbound). Incluye index.html para GitHub Pages.
-          files: |
-            build/domains.txt
-            build/unified-adblock.txt
-            build/unified-adguard.txt
-            build/technitium-domains.txt
-            build/technitium-hosts.txt
-            build/pihole-hosts.txt
-            build/dnsmasq.conf
-            build/unbound.conf
-            build/SHA256SUMS
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  deploy_pages:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-          # 1) Descargar fuentes definidas en sources.txt
-          if [ ! -f sources.txt ]; then
-            echo "ERROR: falta sources.txt en la raíz del repo." >&2
-            exit 1
-          fi
-          while read -r u; do
-            [ -z "${u:-}" ] && continue
-            curl -fsSL "$u" >> tmp/raw.txt || true
-            echo >> tmp/raw.txt
-          done < sources.txt
-
-          # 2) Normalizar y extraer candidatos de distintas sintaxis
-          #    - elimina CR, comentarios in-line, espacios y líneas vacías
-          #    - extrae desde AdBlock (||dominio^)
-          #    - extrae host desde URL (http(s)://host/...)
-          #    - elimina prefijos de hosts (0.0.0.0 / 127.0.0.1) y "www."
-          cat tmp/raw.txt \
-            | tr -d '\r' \
-            | sed -E 's/[[:space:]]+#.*$//' \
-            | sed -E 's/^[[:space:]]+//; s/[[:space:]]+$//' \
-            | awk 'NF' \
-            | sed -E 's#^\|\|([^/\^]+)\^.*$#\1#' \
-            | sed -E 's#^https?://([^/]+).*#\1#' \
-            | sed -E 's/^(0\.0\.0\.0|127\.0\.0\.1)[[:space:]]+//; s/^www\.//' \
-            | sed -E 's/^\.+//' \
-            > tmp/candidates.txt
-
-          # 3) Validación FQDN estricta:
-          #    - solo [a-z0-9.-], minúsculas
-          #    - al menos un punto, sin ".."
-          #    - TLD alfabético 2..63
-          #    - etiquetas 1..63, sin guión al inicio/fin
-          awk '{
-            d=tolower($0)
-            if (d ~ /[^a-z0-9.-]/) next
-            if (d ~ /^\./) next
-            if (d ~ /\.\./) next
-            n=split(d,a,".")
-            if (n<2) next
-            t=a[n]
-            if (t !~ /^[a-z]{2,63}$/) next
-            ok=1
-            for(i=1;i<=n;i++){
-              if (length(a[i])<1 || length(a[i])>63) { ok=0; break }
-              if (a[i] ~ /^-/ || a[i] ~ /-$/)       { ok=0; break }
-            }
-            if (ok) print d
-          }' tmp/candidates.txt \
-          | sort -u > tmp/merged.valid.txt
-
-          # 4) Whitelist y Blacklist (opcionales)
-          if [ -f whitelist.txt ]; then
-            grep -vxFf whitelist.txt tmp/merged.valid.txt > tmp/nowhite.txt || cp tmp/merged.valid.txt tmp/nowhite.txt
-          else
-            cp tmp/merged.valid.txt tmp/nowhite.txt
-          fi
-          cat tmp/nowhite.txt blacklist.txt 2>/dev/null | sort -u > build/domains.txt
-
-          # 5) Artefactos por sistema
-          # AdBlock / uBlock / AdGuard syntax
-          awk '{print "||"$1"^"}' build/domains.txt > build/unified-adblock.txt
-          cp build/unified-adblock.txt build/unified-adguard.txt
-
-          # Technitium (dos variantes)
-          cp build/domains.txt build/technitium-domains.txt
-          awk '{print "0.0.0.0 "$1}' build/domains.txt > build/technitium-hosts.txt
-
-          # Pi-hole / dnsmasq
-          awk '{print "0.0.0.0 "$1}' build/domains.txt > build/pihole-hosts.txt
-          awk '{print "address=/"$1"/0.0.0.0"}' build/domains.txt > build/dnsmasq.conf
-
-          # Unbound
-          awk '{print "local-zone: \""$1"\" always_nxdomain"}' build/domains.txt > build/unbound.conf
-
-          # 6) Índice para GitHub Pages
-          cat > build/index.html <<'HTML'
-          <!doctype html>
-          <meta charset="utf-8">
-          <title>Blocklists</title>
-          <h1>Blocklists</h1>
-          <p>Listas generadas automáticamente. Elegí el formato según tu sistema:</p>
-          <ul>
-            <li><a href="unified-adblock.txt">AdBlock / uBlock (||dominio^)</a></li>
-            <li><a href="unified-adguard.txt">AdGuard (||dominio^)</a></li>
-            <li><a href="technitium-domains.txt">Technitium (dominio por línea)</a></li>
-            <li><a href="technitium-hosts.txt">Technitium (hosts)</a></li>
-            <li><a href="pihole-hosts.txt">Pi-hole / hosts</a></li>
-            <li><a href="dnsmasq.conf">dnsmasq config</a></li>
-            <li><a href="unbound.conf">Unbound config</a></li>
-            <li><a href="domains.txt">Base de dominios</a></li>
-            <li><a href="SHA256SUMS">SHA256SUMS</a></li>
-          </ul>
-          <p>Actualización automática cada 12 horas.</p>
-          HTML
-
-          # 7) Checksums
-          (cd build && sha256sum domains.txt unified-adblock.txt unified-adguard.txt technitium-domains.txt technitium-hosts.txt pihole-hosts.txt dnsmasq.conf unbound.conf > SHA256SUMS || shasum -a 256 domains.txt unified-adblock.txt unified-adguard.txt technitium-domains.txt technitium-hosts.txt pihole-hosts.txt dnsmasq.conf unbound.conf > SHA256SUMS)
-
-      - name: Commit build artifacts
-        run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add build/
-          git commit -m "Daily build: lists + configs" || echo "No changes"
-          git push
-
-      # Publicar artefactos como "Pages" artifact
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: build
-
-  release:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      # Crea/actualiza el tag diario y publica un Release con los archivos de build/
-      - name: Prepare files
-        run: |
-          mkdir -p build
-          git checkout -- build || true
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ needs.build.outputs.tag }}
-          name: "Daily build ${{ needs.build.outputs.tag }}"
-          body: |
-            Blocklists generadas automáticamente (AdBlock, AdGuard, Technitium, Pi-hole, dnsmasq, Unbound).
           files: |
             build/domains.txt
             build/unified-adblock.txt
