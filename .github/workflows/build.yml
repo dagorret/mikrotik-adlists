@@ -8,8 +8,8 @@ on:
     paths:
       - 'sources.txt'
       - 'sources/**'
-      - '.github/workflows/build.yml'
       - 'scripts/**'
+      - '.github/workflows/build.yml'
   workflow_dispatch:
 
 permissions:
@@ -43,7 +43,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install idna
 
-      - name: Build lists (sanitize → outputs)
+      - name: Build lists
         shell: bash
         run: |
           set -euo pipefail
@@ -51,11 +51,11 @@ jobs:
           : > tmp/raw.txt
 
           if [ ! -f sources.txt ]; then
-            echo "ERROR: falta sources.txt en la raíz del repo." >&2
+            echo "ERROR: missing sources.txt at repo root" >&2
             exit 1
           fi
 
-          # Descargar las fuentes declaradas en sources.txt
+          # Download sources declared in sources.txt
           while IFS= read -r u; do
             [ -z "${u:-}" ] && continue
             echo "downloading $u"
@@ -63,163 +63,31 @@ jobs:
             echo >> tmp/raw.txt
           done < sources.txt
 
-          # Crear script Python temporal con el saneamiento
-          cat > sanitize.py <<'PY'
-import re, hashlib
-from pathlib import Path
-import idna
+          # Run sanitizer/generator
+          python scripts/sanitize.py
 
-RAW = Path("tmp/raw.txt")
-BUILD = Path("build")
-BUILD.mkdir(parents=True, exist_ok=True)
-
-HOST_PREFIXES = ("0.0.0.0 ", "127.0.0.1 ", ":: ", "::1 ")
-ADBLOCK_TOKENS = ("||", "^", "*", "@@", "[", "]", "/", "##", "#@#")
-DOMAIN_RE = re.compile(r"^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)+$")
-
-def to_domain(line: str):
-    s = line.strip().lower()
-    s = s.lstrip("\ufeff").replace("\r", "")
-    if not s or s.startswith("#"):
-        return None
-
-    # hosts → quitar IP inicial
-    for p in HOST_PREFIXES:
-        if s.startswith(p):
-            s = s[len(p):].strip()
-            s = s.split()[0] if s else ""
-            break
-
-    # comentario inline
-    if " #" in s:
-        s = s.split(" #", 1)[0].strip()
-
-    # rechazar URLs o paths
-    if s.startswith(("http://", "https://")) or "://" in s or "/" in s:
-        return None
-
-    # rechazar tokens de adblock/regex/selectores
-    if any(tok in s for tok in ADBLOCK_TOKENS):
-        return None
-
-    # rechazar comodines o puntos extremos
-    if s.startswith((".", "*")) or s.endswith((".", "*")):
-        return None
-
-    # limpiar envoltorios
-    s = s.strip(" <>")
-
-    # rechazar IPs
-    if re.fullmatch(r"\d+\.\d+\.\d+\.\d+", s):
-        return None
-
-    # normalizar IDN → punycode (ASCII)
-    try:
-        s = idna.encode(s).decode("ascii")
-    except Exception:
-        return None
-
-    # validar FQDN conservador
-    if not DOMAIN_RE.fullmatch(s) or len(s) > 253:
-        return None
-
-    return s
-
-raw_lines = RAW.read_text(encoding="utf-8", errors="ignore").splitlines()
-domains = set()
-for line in raw_lines:
-    d = to_domain(line)
-    if d:
-        domains.add(d)
-
-dom_sorted = sorted(domains)
-
-# 1) dominios base (también útiles para MikroTik / Technitium)
-Path(BUILD / "domains.txt").write_text(
-    "\n".join(dom_sorted) + ("\n" if dom_sorted else ""),
-    encoding="utf-8"
-)
-Path(BUILD / "technitium-domains.txt").write_text(
-    "\n".join(dom_sorted) + ("\n" if dom_sorted else ""),
-    encoding="utf-8"
-)
-
-# 2) hosts (Pi-hole / Technitium hosts)
-with open(BUILD / "pihole-hosts.txt", "w", encoding="utf-8", newline="\n") as f:
-    for d in dom_sorted:
-        f.write(f"0.0.0.0 {d}\n")
-with open(BUILD / "technitium-hosts.txt", "w", encoding="utf-8", newline="\n") as f:
-    for d in dom_sorted:
-        f.write(f"0.0.0.0 {d}\n")
-
-# 3) adblock / adguard (no usar en MikroTik/Technitium)
-with open(BUILD / "unified-adblock.txt", "w", encoding="utf-8", newline="\n") as f:
-    for d in dom_sorted:
-        f.write(f"||{d}^\n")
-with open(BUILD / "unified-adguard.txt", "w", encoding="utf-8", newline="\n") as f:
-    for d in dom_sorted:
-        f.write(f"||{d}^\n")
-
-# 4) dnsmasq / unbound
-with open(BUILD / "dnsmasq.conf", "w", encoding="utf-8", newline="\n") as f:
-    for d in dom_sorted:
-        f.write(f"address=/{d}/0.0.0.0\n")
-with open(BUILD / "unbound.conf", "w", encoding="utf-8", newline="\n") as f:
-    for d in dom_sorted:
-        f.write(f'local-zone: "{d}" always_nxdomain\n')
-
-# 5) checksums
-def sha256sum(p: Path) -> str:
-    h = hashlib.sha256()
-    with open(p, "rb") as fh:
-        for chunk in iter(lambda: fh.read(8192), b""):
-            h.update(chunk)
-    return h.hexdigest()
-
-targets = [
-    "domains.txt",
-    "unified-adblock.txt",
-    "unified-adguard.txt",
-    "technitium-domains.txt",
-    "technitium-hosts.txt",
-    "pihole-hosts.txt",
-    "dnsmasq.conf",
-    "unbound.conf",
-]
-with open(BUILD / "SHA256SUMS", "w", encoding="utf-8", newline="\n") as sums:
-    for name in targets:
-        p = BUILD / name
-        if p.exists():
-            sums.write(f"{sha256sum(p)}  {name}\n")
-
-print(f"Domains: {len(dom_sorted)}")
-PY
-
-          # Ejecutar saneamiento/generación
-          python sanitize.py
-
-      - name: Build index + .nojekyll
+      - name: Build index and .nojekyll
         run: |
           echo "" > build/.nojekyll
-          {
-            echo '<!doctype html>'
-            echo '<html lang="es"><head><meta charset="utf-8"><title>Mikrotik Adlists — Blocklists Unificadas</title><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font-family:sans-serif;max-width:900px;margin:2rem auto;line-height:1.6;padding:0 1rem}code,pre{background:#f4f4f4;padding:.2rem .4rem;border-radius:4px}a{color:#0056b3;text-decoration:none}a:hover{text-decoration:underline}footer{margin-top:2rem;font-size:.9em;color:#555}</style></head><body>'
-            echo '<h1>🧱 mikrotik-adlists</h1>'
-            echo '<p>Listas unificadas (AdBlock, AdGuard, Technitium, Pi-hole, dnsmasq, Unbound)</p>'
-            echo '<ul>'
-            echo '<li><a href="unified-adblock.txt">AdBlock / uBlock</a></li>'
-            echo '<li><a href="unified-adguard.txt">AdGuard</a></li>'
-            echo '<li><a href="technitium-domains.txt">Technitium dominios</a></li>'
-            echo '<li><a href="technitium-hosts.txt">Technitium hosts</a></li>'
-            echo '<li><a href="pihole-hosts.txt">Pi-hole</a></li>'
-            echo '<li><a href="dnsmasq.conf">dnsmasq</a></li>'
-            echo '<li><a href="unbound.conf">Unbound</a></li>'
-            echo '<li><a href="domains.txt">Dominios base</a></li>'
-            echo '<li><a href="SHA256SUMS">SHA256SUMS</a></li>'
-            echo '</ul>'
-            echo '<footer>© 2025 Carlos Dagorret — dagorret.com.ar</footer>'
-            echo '</body></html>'
-          } > build/index.html
+          cat > build/index.html <<'HTML'
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Mikrotik Adlists — Blocklists Unificadas</title><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font-family:sans-serif;max-width:900px;margin:2rem auto;line-height:1.6;padding:0 1rem}code,pre{background:#f4f4f4;padding:.2rem .4rem;border-radius:4px}a{color:#0056b3;text-decoration:none}a:hover{text-decoration:underline}footer{margin-top:2rem;font-size:.9em;color:#555}</style></head><body>
+<h1>mikrotik-adlists</h1>
+<p>Listas unificadas (AdBlock, AdGuard, Technitium, Pi-hole, dnsmasq, Unbound)</p>
+<ul>
+<li><a href="unified-adblock.txt">AdBlock / uBlock</a></li>
+<li><a href="unified-adguard.txt">AdGuard</a></li>
+<li><a href="technitium-domains.txt">Technitium dominios</a></li>
+<li><a href="technitium-hosts.txt">Technitium hosts</a></li>
+<li><a href="pihole-hosts.txt">Pi-hole</a></li>
+<li><a href="dnsmasq.conf">dnsmasq</a></li>
+<li><a href="unbound.conf">Unbound</a></li>
+<li><a href="domains.txt">Dominios base</a></li>
+<li><a href="SHA256SUMS">SHA256SUMS</a></li>
+</ul>
+<footer>© 2025</footer>
+</body></html>
+HTML
 
       - name: Commit artifacts (repo)
         run: |
