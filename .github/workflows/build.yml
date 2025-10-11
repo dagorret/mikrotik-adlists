@@ -55,17 +55,17 @@ jobs:
             exit 1
           fi
 
-          # 1) Descargar fuentes crudas
-          while read -r u; do
+          # Descargar las fuentes declaradas en sources.txt
+          while IFS= read -r u; do
             [ -z "${u:-}" ] && continue
             echo "downloading $u"
             curl -fsSL "$u" >> tmp/raw.txt || true
             echo >> tmp/raw.txt
           done < sources.txt
 
-          # 2) Sanitizador en Python (IDNA + filtros estrictos)
-          python - <<'PY'
-import re, sys, hashlib, os
+          # Crear script Python temporal con el saneamiento
+          cat > sanitize.py <<'PY'
+import re, hashlib
 from pathlib import Path
 import idna
 
@@ -77,66 +77,90 @@ HOST_PREFIXES = ("0.0.0.0 ", "127.0.0.1 ", ":: ", "::1 ")
 ADBLOCK_TOKENS = ("||", "^", "*", "@@", "[", "]", "/", "##", "#@#")
 DOMAIN_RE = re.compile(r"^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)+$")
 
-def to_domain(line:str):
+def to_domain(line: str):
     s = line.strip().lower()
-    s = s.lstrip("\ufeff").replace("\r","")
+    s = s.lstrip("\ufeff").replace("\r", "")
     if not s or s.startswith("#"):
         return None
-    # hosts → sacar IP al inicio
+
+    # hosts → quitar IP inicial
     for p in HOST_PREFIXES:
         if s.startswith(p):
             s = s[len(p):].strip()
             s = s.split()[0] if s else ""
             break
-    # eliminar comentario inline
+
+    # comentario inline
     if " #" in s:
         s = s.split(" #", 1)[0].strip()
-    # rechazar urls/paths
-    if s.startswith(("http://","https://")) or "://" in s or "/" in s:
+
+    # rechazar URLs o paths
+    if s.startswith(("http://", "https://")) or "://" in s or "/" in s:
         return None
-    # rechazar tokens adblock/regex
+
+    # rechazar tokens de adblock/regex/selectores
     if any(tok in s for tok in ADBLOCK_TOKENS):
         return None
-    # rechazar comodines/puntos extremos
+
+    # rechazar comodines o puntos extremos
     if s.startswith((".", "*")) or s.endswith((".", "*")):
         return None
+
+    # limpiar envoltorios
     s = s.strip(" <>")
+
     # rechazar IPs
     if re.fullmatch(r"\d+\.\d+\.\d+\.\d+", s):
         return None
-    # normalizar IDN → punycode
+
+    # normalizar IDN → punycode (ASCII)
     try:
         s = idna.encode(s).decode("ascii")
     except Exception:
         return None
+
+    # validar FQDN conservador
     if not DOMAIN_RE.fullmatch(s) or len(s) > 253:
         return None
+
     return s
 
-raw = RAW.read_text(encoding="utf-8", errors="ignore").splitlines()
+raw_lines = RAW.read_text(encoding="utf-8", errors="ignore").splitlines()
 domains = set()
-for line in raw:
+for line in raw_lines:
     d = to_domain(line)
-    if d: domains.add(d)
+    if d:
+        domains.add(d)
 
 dom_sorted = sorted(domains)
-# outputs
-(BUILD / "domains.txt").write_text("\n".join(dom_sorted) + ("\n" if dom_sorted else ""), encoding="utf-8")
-(BUILD / "technitium-domains.txt").write_text("\n".join(dom_sorted) + ("\n" if dom_sorted else ""), encoding="utf-8")
+
+# 1) dominios base (también útiles para MikroTik / Technitium)
+Path(BUILD / "domains.txt").write_text(
+    "\n".join(dom_sorted) + ("\n" if dom_sorted else ""),
+    encoding="utf-8"
+)
+Path(BUILD / "technitium-domains.txt").write_text(
+    "\n".join(dom_sorted) + ("\n" if dom_sorted else ""),
+    encoding="utf-8"
+)
+
+# 2) hosts (Pi-hole / Technitium hosts)
 with open(BUILD / "pihole-hosts.txt", "w", encoding="utf-8", newline="\n") as f:
     for d in dom_sorted:
         f.write(f"0.0.0.0 {d}\n")
 with open(BUILD / "technitium-hosts.txt", "w", encoding="utf-8", newline="\n") as f:
     for d in dom_sorted:
         f.write(f"0.0.0.0 {d}\n")
-# adblock/adguard (mantener separadas y sólo si alguien las necesita, no para MikroTik/Technitium)
+
+# 3) adblock / adguard (no usar en MikroTik/Technitium)
 with open(BUILD / "unified-adblock.txt", "w", encoding="utf-8", newline="\n") as f:
     for d in dom_sorted:
         f.write(f"||{d}^\n")
 with open(BUILD / "unified-adguard.txt", "w", encoding="utf-8", newline="\n") as f:
     for d in dom_sorted:
         f.write(f"||{d}^\n")
-# dnsmasq / unbound
+
+# 4) dnsmasq / unbound
 with open(BUILD / "dnsmasq.conf", "w", encoding="utf-8", newline="\n") as f:
     for d in dom_sorted:
         f.write(f"address=/{d}/0.0.0.0\n")
@@ -144,16 +168,24 @@ with open(BUILD / "unbound.conf", "w", encoding="utf-8", newline="\n") as f:
     for d in dom_sorted:
         f.write(f'local-zone: "{d}" always_nxdomain\n')
 
-# checksums
-def sha256sum(p:Path):
+# 5) checksums
+def sha256sum(p: Path) -> str:
     h = hashlib.sha256()
     with open(p, "rb") as fh:
         for chunk in iter(lambda: fh.read(8192), b""):
             h.update(chunk)
     return h.hexdigest()
 
-targets = ["domains.txt","unified-adblock.txt","unified-adguard.txt","technitium-domains.txt",
-           "technitium-hosts.txt","pihole-hosts.txt","dnsmasq.conf","unbound.conf"]
+targets = [
+    "domains.txt",
+    "unified-adblock.txt",
+    "unified-adguard.txt",
+    "technitium-domains.txt",
+    "technitium-hosts.txt",
+    "pihole-hosts.txt",
+    "dnsmasq.conf",
+    "unbound.conf",
+]
 with open(BUILD / "SHA256SUMS", "w", encoding="utf-8", newline="\n") as sums:
     for name in targets:
         p = BUILD / name
@@ -163,10 +195,12 @@ with open(BUILD / "SHA256SUMS", "w", encoding="utf-8", newline="\n") as sums:
 print(f"Domains: {len(dom_sorted)}")
 PY
 
+          # Ejecutar saneamiento/generación
+          python sanitize.py
+
       - name: Build index + .nojekyll
         run: |
           echo "" > build/.nojekyll
-          rm -f build/index.html
           {
             echo '<!doctype html>'
             echo '<html lang="es"><head><meta charset="utf-8"><title>Mikrotik Adlists — Blocklists Unificadas</title><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font-family:sans-serif;max-width:900px;margin:2rem auto;line-height:1.6;padding:0 1rem}code,pre{background:#f4f4f4;padding:.2rem .4rem;border-radius:4px}a{color:#0056b3;text-decoration:none}a:hover{text-decoration:underline}footer{margin-top:2rem;font-size:.9em;color:#555}</style></head><body>'
