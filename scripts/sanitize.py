@@ -1,4 +1,3 @@
-# scripts/sanitize.py
 import re, hashlib
 from pathlib import Path
 import idna
@@ -17,42 +16,34 @@ def to_domain(line: str):
     if not s or s.startswith("#"):
         return None
 
-    # hosts -> drop leading address
     for p in HOST_PREFIXES:
         if s.startswith(p):
             s = s[len(p):].strip()
             s = s.split()[0] if s else ""
             break
 
-    # inline comment
     if " #" in s:
         s = s.split(" #", 1)[0].strip()
 
-    # reject URLs/paths
     if s.startswith(("http://", "https://")) or "://" in s or "/" in s:
         return None
 
-    # reject adblock/regex tokens
     if any(tok in s for tok in ADBLOCK_TOKENS):
         return None
 
-    # reject wildcards or leading/trailing dots
     if s.startswith((".", "*")) or s.endswith((".", "*")):
         return None
 
     s = s.strip(" <>")
 
-    # reject IPv4
     if re.fullmatch(r"\d+\.\d+\.\d+\.\d+", s):
         return None
 
-    # IDN -> punycode
     try:
         s = idna.encode(s).decode("ascii")
     except Exception:
         return None
 
-    # conservative FQDN check
     if not DOMAIN_RE.fullmatch(s) or len(s) > 253:
         return None
 
@@ -67,17 +58,9 @@ for line in raw_lines:
 
 dom_sorted = sorted(domains)
 
-# domain-only outputs
-Path(BUILD / "domains.txt").write_text(
-    "\n".join(dom_sorted) + ("\n" if dom_sorted else ""),
-    encoding="utf-8"
-)
-Path(BUILD / "technitium-domains.txt").write_text(
-    "\n".join(dom_sorted) + ("\n" if dom_sorted else ""),
-    encoding="utf-8"
-)
+Path(BUILD / "domains.txt").write_text("\n".join(dom_sorted) + ("\n" if dom_sorted else ""), encoding="utf-8")
+Path(BUILD / "technitium-domains.txt").write_text("\n".join(dom_sorted) + ("\n" if dom_sorted else ""), encoding="utf-8")
 
-# hosts format
 with open(BUILD / "pihole-hosts.txt", "w", encoding="utf-8", newline="\n") as f:
     for d in dom_sorted:
         f.write(f"0.0.0.0 {d}\n")
@@ -85,7 +68,6 @@ with open(BUILD / "technitium-hosts.txt", "w", encoding="utf-8", newline="\n") a
     for d in dom_sorted:
         f.write(f"0.0.0.0 {d}\n")
 
-# adblock/adguard (not for MikroTik/Technitium)
 with open(BUILD / "unified-adblock.txt", "w", encoding="utf-8", newline="\n") as f:
     for d in dom_sorted:
         f.write(f"||{d}^\n")
@@ -93,7 +75,6 @@ with open(BUILD / "unified-adguard.txt", "w", encoding="utf-8", newline="\n") as
     for d in dom_sorted:
         f.write(f"||{d}^\n")
 
-# dns resolvers
 with open(BUILD / "dnsmasq.conf", "w", encoding="utf-8", newline="\n") as f:
     for d in dom_sorted:
         f.write(f"address=/{d}/0.0.0.0\n")
@@ -101,7 +82,6 @@ with open(BUILD / "unbound.conf", "w", encoding="utf-8", newline="\n") as f:
     for d in dom_sorted:
         f.write(f'local-zone: "{d}" always_nxdomain\n')
 
-# checksums
 def sha256sum(p: Path) -> str:
     h = hashlib.sha256()
     with open(p, "rb") as fh:
