@@ -1,17 +1,69 @@
 <!doctype html>
+<html lang="es">
+<head>
 <meta charset="utf-8">
-<title>Blocklists</title>
-<h1>Blocklists</h1>
-<p>Listas generadas automáticamente. Elegí el formato según tu sistema:</p>
+<title>Mikrotik Adlists — Blocklists Unificadas</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="https://avatars.githubusercontent.com/u/9919?s=200&v=4">
+<style>
+body { font-family: system-ui, sans-serif; max-width: 900px; margin: 2rem auto; line-height: 1.6; padding: 0 1rem; }
+h1, h2, h3 { color: #333; }
+code, pre { background: #f4f4f4; padding: 0.2rem 0.4rem; border-radius: 4px; }
+a { color: #0056b3; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.badges img { margin-right: 0.4rem; }
+footer { margin-top: 3rem; font-size: 0.9em; color: #555; }
+</style>
+</head>
+<body>
+<h1>🧱 mikrotik-adlists — Blocklists unificadas para múltiples sistemas</h1>
+
+<div class="badges">
+  <a href="https://github.com/dagorret/mikrotik-adlists/actions"><img src="https://github.com/dagorret/mikrotik-adlists/actions/workflows/build.yml/badge.svg" alt="Build Status"></a>
+  <a href="https://dagorret.github.io/mikrotik-adlists/"><img src="https://img.shields.io/badge/GitHub%20Pages-online-brightgreen" alt="GitHub Pages"></a>
+  <a href="https://github.com/dagorret/mikrotik-adlists/releases"><img src="https://img.shields.io/github/v/release/dagorret/mikrotik-adlists?label=Última%20versión" alt="Release"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License"></a>
+  <a href="https://Dagorret.com.ar"><img src="https://img.shields.io/badge/Maintainer-Carlos%20Dagorret-blue" alt="Maintainer"></a>
+</div>
+
+<p>Listas de dominios y hosts generadas automáticamente cada 12 horas a partir de múltiples fuentes públicas.<br>
+Compatibles con <strong>AdBlock / uBlock Origin</strong>, <strong>AdGuard</strong>, <strong>Technitium DNS Server</strong>, <strong>Pi-hole / dnsmasq</strong> y <strong>Unbound / BIND</strong>.</p>
+
+<h2>📦 Formatos generados</h2>
 <ul>
-  <li><a href="unified-adblock.txt">AdBlock / uBlock (||dominio^)</a></li>
-  <li><a href="unified-adguard.txt">AdGuard (||dominio^)</a></li>
-  <li><a href="technitium-domains.txt">Technitium (dominio por línea)</a></li>
-  <li><a href="technitium-hosts.txt">Technitium (hosts)</a></li>
-  <li><a href="pihole-hosts.txt">Pi-hole / hosts</a></li>
-  <li><a href="dnsmasq.conf">dnsmasq config</a></li>
-  <li><a href="unbound.conf">Unbound config</a></li>
-  <li><a href="domains.txt">Base de dominios</a></li>
-  <li><a href="SHA256SUMS">SHA256SUMS</a></li>
+  <li><a href="unified-adblock.txt">unified-adblock.txt</a> — AdBlock / uBlock (||dominio^)</li>
+  <li><a href="unified-adguard.txt">unified-adguard.txt</a> — AdGuard Home</li>
+  <li><a href="technitium-domains.txt">technitium-domains.txt</a> — Technitium DNS (dominio)</li>
+  <li><a href="technitium-hosts.txt">technitium-hosts.txt</a> — Technitium DNS (hosts)</li>
+  <li><a href="pihole-hosts.txt">pihole-hosts.txt</a> — Pi-hole / hosts</li>
+  <li><a href="dnsmasq.conf">dnsmasq.conf</a> — dnsmasq/OpenWRT</li>
+  <li><a href="unbound.conf">unbound.conf</a> — Unbound / BIND</li>
+  <li><a href="domains.txt">domains.txt</a> — Base de dominios</li>
+  <li><a href="SHA256SUMS">SHA256SUMS</a> — Verificación</li>
 </ul>
-<p>Actualización automática cada 12 horas.</p>
+
+<h2>🌐 Cómo suscribirse</h2>
+<p>Podés usar directamente las URLs desde GitHub Pages:</p>
+<pre><code>https://dagorret.github.io/mikrotik-adlists/unified-adblock.txt
+https://dagorret.github.io/mikrotik-adlists/technitium-domains.txt
+https://dagorret.github.io/mikrotik-adlists/pihole-hosts.txt
+</code></pre>
+
+<h3>Ejemplo para Unbound:</h3>
+<pre><code>curl -o /etc/unbound/blocklist.conf https://dagorret.github.io/mikrotik-adlists/unbound.conf
+sudo systemctl restart unbound</code></pre>
+
+<h2>📘 Releases diarios</h2>
+<p>También disponibles como versiones fijas:</p>
+<pre><code>https://github.com/dagorret/mikrotik-adlists/releases/download/daily-YYYYMMDD/technitium-domains.txt</code></pre>
+
+<h2>🧑‍💻 Autor</h2>
+<p><strong>Carlos Dagorret</strong><br>
+<a href="https://dagorret.com.ar">https://Dagorret.com.ar</a><br>
+<a href="https://github.com/dagorret">github.com/dagorret</a></p>
+
+<footer>
+<p>© 2025 Carlos Dagorret — Generado automáticamente cada 12 horas mediante GitHub Actions.</p>
+</footer>
+</body>
+</html>
