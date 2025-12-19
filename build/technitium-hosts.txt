@@ -93603,6 +93603,7 @@
 0.0.0.0 sdk4push.com
 0.0.0.0 sdkapi-prod.dfinery.ai
 0.0.0.0 sdkauth.hpplay.cn
+0.0.0.0 sdkc.vervegroupinc.net
 0.0.0.0 sdkconf.avlyun.com
 0.0.0.0 sdkconfig.video.qq.com
 0.0.0.0 sdkl.info
