@@ -23788,7 +23788,6 @@
 0.0.0.0 cattle.musikschule-bregenzerwald.at
 0.0.0.0 cattle.spiral11.com
 0.0.0.0 cattle.weiss-bregenz.at
-0.0.0.0 cattleforcedlit.com
 0.0.0.0 cattoonnetwork.com
 0.0.0.0 catwoodflewit.click
 0.0.0.0 catwrite.com
@@ -45907,7 +45906,6 @@
 0.0.0.0 garysdetect1ng.c0.uk
 0.0.0.0 garysdetect1ng.co.uk
 0.0.0.0 garysdetecting.c0.uk
-0.0.0.0 gasahenxnuogt.website
 0.0.0.0 gasehoauzxzzt.store
 0.0.0.0 gaseouspuggle.com
 0.0.0.0 gasmarena.com
@@ -46034,7 +46032,6 @@
 0.0.0.0 gcgrabxewyxwe.website
 0.0.0.0 gcifacowdpa.com
 0.0.0.0 gcion.com
-0.0.0.0 gcm.ksmobile.com
 0.0.0.0 gcm.ksmobile.net
 0.0.0.0 gcmwodwqcaqjw.space
 0.0.0.0 gcpafttmstljb.website
@@ -92521,7 +92518,6 @@
 0.0.0.0 s.chmsrv.com
 0.0.0.0 s.chooljang.shop
 0.0.0.0 s.cm9srv.com
-0.0.0.0 s.cntqk.com
 0.0.0.0 s.cntqk.vn
 0.0.0.0 s.collectiveaudience.co
 0.0.0.0 s.commissie.online
