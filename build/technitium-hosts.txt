@@ -22914,7 +22914,6 @@
 0.0.0.0 calm-stop.pro
 0.0.0.0 calmbytedishwater.com
 0.0.0.0 calmlygelatinecandle.com
-0.0.0.0 calmlytraditionalfreelance.com
 0.0.0.0 calofduty.com
 0.0.0.0 calolfduty.com
 0.0.0.0 calolofduty.com
@@ -41258,7 +41257,6 @@
 0.0.0.0 facrebook.com
 0.0.0.0 facsbook.com
 0.0.0.0 facsebook.com
-0.0.0.0 factgoldbeg.live
 0.0.0.0 factsheetgrievancekeg.com
 0.0.0.0 facultativethus.com
 0.0.0.0 facultycoffeehouseharp.com
@@ -41667,7 +41665,6 @@
 0.0.0.0 fashlane.com
 0.0.0.0 fasnart.tv
 0.0.0.0 fasndom.com
-0.0.0.0 fasosoysfw.com
 0.0.0.0 fasrmers.com
 0.0.0.0 fastad.beepworld.de
 0.0.0.0 fastapi.net
@@ -57090,7 +57087,6 @@
 0.0.0.0 hiprofitnetworks.com
 0.0.0.0 hipub.hiwit.org
 0.0.0.0 hirselaftaba.cfd
-0.0.0.0 hirslehumitocht.cyou
 0.0.0.0 hisisathlle.com
 0.0.0.0 hispidtux.com
 0.0.0.0 hissharppremiere.com
@@ -67525,7 +67521,6 @@
 0.0.0.0 knockjav09212026.shop
 0.0.0.0 knotbachelor.com
 0.0.0.0 knotshallowspeeding.com
-0.0.0.0 knowbetnow.live
 0.0.0.0 knowd.com
 0.0.0.0 knowgrownupdoomed.com
 0.0.0.0 knowingallot.com
@@ -70985,7 +70980,6 @@
 0.0.0.0 lqatimes.com
 0.0.0.0 lqbvjmkoomerm.top
 0.0.0.0 lqbvjmkoozmry.top
-0.0.0.0 lqbvjmkwemrlr.top
 0.0.0.0 lqcngjecijy.rocks
 0.0.0.0 lqdafcgrlaaby.xyz
 0.0.0.0 lqdcvj.top
@@ -71068,7 +71062,6 @@
 0.0.0.0 ltbzdstsmjiop.space
 0.0.0.0 ltcpfjgmkplye.online
 0.0.0.0 ltcvggyknrnqi.online
-0.0.0.0 ltetrailwaysint.org
 0.0.0.0 ltgllogtfmqjb.online
 0.0.0.0 lthuvb.icu
 0.0.0.0 ltimes.com
@@ -85993,7 +85986,6 @@
 0.0.0.0 pixel.wp.pl
 0.0.0.0 pixel.yola.com
 0.0.0.0 pixeladszone.top
-0.0.0.0 pixelappcollector.thesun.co.uk
 0.0.0.0 pixelcounter.marca.com
 0.0.0.0 pixelhere.com
 0.0.0.0 pixelpluses.com
@@ -90616,7 +90608,6 @@
 0.0.0.0 reople.co.kr
 0.0.0.0 reorganizeache.com
 0.0.0.0 reorganizeglaze.com
-0.0.0.0 reorpzo49wt6vwon72q.rest
 0.0.0.0 reottentomatoes.com
 0.0.0.0 reoxwrcawzaeo.website
 0.0.0.0 reoyalbank.com
@@ -93067,7 +93058,6 @@
 0.0.0.0 rzeuizwtvteer.online
 0.0.0.0 rzneekilff.com
 0.0.0.0 rzpzdlmfkizyv.store
-0.0.0.0 rzqzuyb7gg9zc5iv15bf81e.cfd
 0.0.0.0 rzsyenebnyvgs.website
 0.0.0.0 rzuohgfwyoxx.com
 0.0.0.0 rzvcdclxehmnd.global
@@ -104404,7 +104394,6 @@
 0.0.0.0 tfxswxtxcickc.space
 0.0.0.0 tfyam4np2y.com
 0.0.0.0 tfythnlvyefxrm.com
-0.0.0.0 tfzfvrvsmczvl.website
 0.0.0.0 tg.mybb.ru
 0.0.0.0 tg1.premiumimpression.com
 0.0.0.0 tgakt.tv
@@ -109746,7 +109735,6 @@
 0.0.0.0 uiowafarmbureau.com
 0.0.0.0 uiowastatebank.net
 0.0.0.0 uiphk.one
-0.0.0.0 uipseknc.com
 0.0.0.0 uiqdvkqzx.com
 0.0.0.0 uiqnrkwunajpgtx.com
 0.0.0.0 uiqouw.icu
@@ -114058,7 +114046,6 @@
 0.0.0.0 wcuxkyjwndqxj.top
 0.0.0.0 wcvevntrztrdi.site
 0.0.0.0 wcwijbtqgajxf.global
-0.0.0.0 wcxwaktdmio.com
 0.0.0.0 wcyvjdpduqxym.site
 0.0.0.0 wdalgreens.com
 0.0.0.0 wdalmart.com
@@ -118381,7 +118368,6 @@
 0.0.0.0 wximg.wxs.qq.com
 0.0.0.0 wxlgreens.com
 0.0.0.0 wxlmart.com
-0.0.0.0 wxqbopca-i.global
 0.0.0.0 wxqhhskaltnbw.site
 0.0.0.0 wxrgjdkxhegjn.online
 0.0.0.0 wxshingtonexaminer.com
