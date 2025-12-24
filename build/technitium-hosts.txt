@@ -4506,7 +4506,6 @@
 0.0.0.0 ads.justhungry.com
 0.0.0.0 ads.kaktuz.net
 0.0.0.0 ads.kelbymediagroup.com
-0.0.0.0 ads.kelkoo.com
 0.0.0.0 ads.ketnoitatca.net
 0.0.0.0 ads.kiemsat.vn
 0.0.0.0 ads.kinxxx.com
@@ -56106,7 +56105,6 @@
 0.0.0.0 happymuttereda.org
 0.0.0.0 happytrailquest.com
 0.0.0.0 happyvibetoday.com
-0.0.0.0 haprjfxlcvint.site
 0.0.0.0 haqacdoqba.com
 0.0.0.0 haqrvard.edu
 0.0.0.0 har4vard.edu
@@ -60612,7 +60610,6 @@
 0.0.0.0 ia.iinfo.cz
 0.0.0.0 iabusprivacy.pmc.com
 0.0.0.0 iacasjezogonf.online
-0.0.0.0 iaculturerpartment.org
 0.0.0.0 iad.anm.co.uk
 0.0.0.0 iad.appboy.com
 0.0.0.0 iad.apple.com
@@ -61566,7 +61563,6 @@
 0.0.0.0 img.yangshengtang123.com
 0.0.0.0 img1.126.net
 0.0.0.0 img1.eywdf.com
-0.0.0.0 img1.hblds.com
 0.0.0.0 img11.biyan8.com
 0.0.0.0 img16.diyifanwen.com
 0.0.0.0 img2.360buyimg.com
@@ -67950,7 +67946,6 @@
 0.0.0.0 ksiabdgtqzbsq.top
 0.0.0.0 ksiserpermanente.org
 0.0.0.0 ksjustlikeanan.com
-0.0.0.0 kskillsombineu.com
 0.0.0.0 ksknhvggsizbu.store
 0.0.0.0 kslfqcxumewry.store
 0.0.0.0 ksloland.com
@@ -80246,7 +80241,6 @@
 0.0.0.0 ntvpinp.com
 0.0.0.0 ntvpwpush.com
 0.0.0.0 ntwrencesprin.org
-0.0.0.0 ntxveyforwyqw.online
 0.0.0.0 ntxviewsinterfu.info
 0.0.0.0 ntyimes.com
 0.0.0.0 ntyivmvvzscaj.store
@@ -93184,7 +93178,6 @@
 0.0.0.0 rvrl1srlq.com
 0.0.0.0 rvrpushserv.com
 0.0.0.0 rvsiidddallwz.online
-0.0.0.0 rvtjvfoao.com
 0.0.0.0 rvvmynjd.love
 0.0.0.0 rvxmlj.icu
 0.0.0.0 rvyaqmmxxoinm.site
