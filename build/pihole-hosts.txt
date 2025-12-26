@@ -1036,7 +1036,6 @@
 0.0.0.0 388533c5eb.com
 0.0.0.0 3890e014d2.com
 0.0.0.0 38ds89f8.de
-0.0.0.0 392274exy4p2re.rest
 0.0.0.0 39236100.lotre.io
 0.0.0.0 3936fb9cdf.com
 0.0.0.0 39489ef6ae.com
@@ -1397,7 +1396,6 @@
 0.0.0.0 53c2dtzsj7t1.top
 0.0.0.0 53ff0e58f9.com
 0.0.0.0 53h7rxip9.com
-0.0.0.0 53z63p7twtw6mm4zprtvuv59.rest
 0.0.0.0 540484935e.com
 0.0.0.0 540f8cca2b.com
 0.0.0.0 5475feaab.clicknplay.to
@@ -4446,7 +4444,6 @@
 0.0.0.0 ads.emirates.net.ae
 0.0.0.0 ads.ennaharonline.com
 0.0.0.0 ads.enrt.eu
-0.0.0.0 ads.environmentalleader.com
 0.0.0.0 ads.epltalk.com
 0.0.0.0 ads.eu.msn.com
 0.0.0.0 ads.fairfax.com.au
@@ -18193,7 +18190,6 @@
 0.0.0.0 bannerimage.com
 0.0.0.0 bannerlandia.com.ar
 0.0.0.0 bannermall.com
-0.0.0.0 bannermorninginterference.com
 0.0.0.0 banneroctober.store
 0.0.0.0 bannerpower.com
 0.0.0.0 banners-slb.mobile.yandex.net
@@ -20440,7 +20436,6 @@
 0.0.0.0 blueoyster.click
 0.0.0.0 blueparrot.media
 0.0.0.0 bluetackclasp.com
-0.0.0.0 bluethabbr.click
 0.0.0.0 bluewhaleweb.com
 0.0.0.0 bluffappend.com
 0.0.0.0 bluffforester.com
@@ -20661,7 +20656,6 @@
 0.0.0.0 bolsek.ru
 0.0.0.0 boltepse.com
 0.0.0.0 boltnunfirsthand.com
-0.0.0.0 bombaycincherprinked.cfd
 0.0.0.0 bomdog.com
 0.0.0.0 bomedepot.com
 0.0.0.0 bonafides.club
@@ -38051,7 +38045,6 @@
 0.0.0.0 e220.dailyfreeman.com
 0.0.0.0 e25b585b36.com
 0.0.0.0 e26fr9qb4m.com
-0.0.0.0 e2af52cae7.com
 0.0.0.0 e2c5d0bd2b.ee3f8f44cf.com
 0.0.0.0 e2e.mashable.com
 0.0.0.0 e2ertt.com
@@ -46441,7 +46434,6 @@
 0.0.0.0 gbblpbibctqex.site
 0.0.0.0 gbcbs.com
 0.0.0.0 gbdifgyealbpd.site
-0.0.0.0 gbdvmfnoynlxh.com
 0.0.0.0 gbede.com
 0.0.0.0 gbedxtcoyviwt.space
 0.0.0.0 gbeico.com
@@ -65091,7 +65083,6 @@
 0.0.0.0 jifelock.com
 0.0.0.0 jifflebreasts.com
 0.0.0.0 jifkairport.com
-0.0.0.0 jigaignevedrooh.com
 0.0.0.0 jigsawharmony.com
 0.0.0.0 jigsawthirsty.com
 0.0.0.0 jiguang.cn
@@ -78410,7 +78401,6 @@
 0.0.0.0 ncyxfrdxpacie.website
 0.0.0.0 ncz3u7cj2.com
 0.0.0.0 ndbign.com
-0.0.0.0 ndcomemunica.com
 0.0.0.0 ndct-data.video.iqiyi.com
 0.0.0.0 ndcuvybsahujj.online
 0.0.0.0 ndeedtheriverwas.com
@@ -86083,7 +86073,6 @@
 0.0.0.0 phx9cqla2.com
 0.0.0.0 phxdrf.icu
 0.0.0.0 phxkohxxcjcoz.store
-0.0.0.0 phxmlvofapeqj.online
 0.0.0.0 phygfasvnnjrg.life
 0.0.0.0 phylumslypes.top
 0.0.0.0 phynefopsu.com
@@ -92899,7 +92888,6 @@
 0.0.0.0 rptzikhuyzsgy.website
 0.0.0.0 rpwhtrtaovrg.com
 0.0.0.0 rpxorephfxdvm.site
-0.0.0.0 rpxthifhxwznd.space
 0.0.0.0 rpyalbank.com
 0.0.0.0 rpyztjadsbonh.store
 0.0.0.0 rqejawwjloqlk.top
@@ -97083,7 +97071,6 @@
 0.0.0.0 sjadkbbvcmdfd.website
 0.0.0.0 sjanghai-airport.com
 0.0.0.0 sjapchat.com
-0.0.0.0 sjbaiduadv1.redou.com
 0.0.0.0 sjbnwzwwmcubf.site
 0.0.0.0 sjetnf-oizyo.buzz
 0.0.0.0 sjfyupmvpazsj.store
