@@ -42,9 +42,18 @@ stats = {
 def to_domain(line: str, *, update_stats: bool = True):
     """
     Normaliza una línea y devuelve un dominio válido o None.
-    - Acepta entradas tipo "*.example.com" (las reduce a "example.com")
-    - Soporta entrada en formato hosts: "0.0.0.0 domain"
-    - Descarta reglas Adblock/AdGuard como entrada (no soportadas)
+
+    Soporta entradas:
+    - "example.com"
+    - "*.example.com"            (se reduce a "example.com")
+    - "example.com."             (quita trailing dot)
+    - "0.0.0.0 example.com"      (hosts file)
+    - "::1 example.com"          (hosts file)
+
+    Descarta entradas:
+    - URLs (http/https, con paths)
+    - Reglas Adblock/AdGuard como entrada (no soportadas)
+    - IPs
     """
     s = line.strip().lower()
     s = s.lstrip("\ufeff").replace("\r", "")
@@ -218,10 +227,14 @@ with open(BUILD / "dnsmasq.conf", "w", encoding="utf-8", newline="\n") as f:
         f.write(f"address=/{d}/0.0.0.0\n")
 
 # Unbound
-# Nota: local-zone para "example.com" afecta también subdominios (www.example.com, a.b.example.com, etc.)
+# IMPORTANTE:
+# - Este archivo se usa como "include" desde service.conf.
+# - Para que sea válido en cualquier lugar, lo emitimos como un bloque completo "server:".
+# - local-zone para "example.com" afecta también subdominios (www.example.com, a.b.example.com, etc.)
 with open(BUILD / "unbound.conf", "w", encoding="utf-8", newline="\n") as f:
+    f.write("server:\n")
     for d in dom_sorted:
-        f.write(f'local-zone: "{d}" always_nxdomain\n')
+        f.write(f'  local-zone: "{d}" always_nxdomain\n')
 
 # =========================
 # SHA256SUMS
