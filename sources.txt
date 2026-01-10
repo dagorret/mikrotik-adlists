@@ -1,5 +1,5 @@
 # HaGeZi Pro — excelente balance entre tamaño y cobertura (~400k)
-https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.txt
+https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/domains/pro.txt
 
 # StevenBlack base — hosts confiable y mantenida (~80k)
 #https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
