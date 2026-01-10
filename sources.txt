@@ -1,8 +1,27 @@
-# Base segura, balanceada
+# ================================
+# Canonical DNS blocklist sources
+# Supported formats: DOMAINS / HOSTS
+# Goal: Security & privacy without breaking usability
+# ================================
+
+# ------------------------------------------------
+# OISD Small
+# Very well curated, low false positives
+# Focus: malware, phishing, abusive tracking
+# Format: DOMAINS
+# ------------------------------------------------
 https://small.oisd.nl/domainswild2
 
-# Seguridad + privacidad moderada
+# ------------------------------------------------
+# HaGeZi Pro (Domains)
+# Balanced security & privacy (non-aggressive)
+# Format: DOMAINS (including subdomains)
+# ------------------------------------------------
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/pro.txt
 
-# Typosquatting / phishing
+# ------------------------------------------------
+# ShadowWhisperer – Typo Domains
+# Protection against typosquatting & phishing
+# Format: DOMAINS
+# ------------------------------------------------
 https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/TypoDomains.txt
