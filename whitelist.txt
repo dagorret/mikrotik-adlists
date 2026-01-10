@@ -1,14 +1,33 @@
-# --- Infraestructura de CDN y repositorios legítimos ---
+# ==========================
+# Infraestructura crítica
+# ==========================
 cloudfront.net
 amazonaws.com
-docker.com
-docker.io
+googleusercontent.com
+gvt1.com
+gvt2.com
+gstatic.com
+youtube.com
+ytimg.com
+googlevideo.com
+
+# Google Ads / Analytics (no bloquear)
+doubleclick.net
+googlesyndication.com
+googleadservices.com
+googletagmanager.com
+googletagservices.com
+
+# Servicios comunes
 github.com
 githubusercontent.com
+docker.com
+docker.io
 ubuntu.com
-snapcraft.io
 canonical.com
-spotify.com
-discord.com
-zoom.us
+
+# CDNs / protección
+cloudflare.com
 challenges.cloudflare.com
+fastly.net
+akamaihd.net
