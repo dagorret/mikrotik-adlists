@@ -1,25 +1,28 @@
+#!/usr/bin/env python3
 import re
 import hashlib
 from pathlib import Path
 import idna
 
-# Archivos de entrada / salida
+# =========================
+# Config / Paths
+# =========================
 RAW = Path("tmp/raw.txt")
 BUILD = Path("build")
 BUILD.mkdir(parents=True, exist_ok=True)
 
-# Whitelist opcional (uno por línea, mismo formato que las listas de entrada)
-WHITELIST_FILE = Path("whitelist.txt")
+# Ajuste fino (uno por línea)
+WHITELIST_FILE = Path("whitelist.txt")   # siempre gana (precedencia)
+BLACKLIST_FILE = Path("blacklist.txt")   # se suma aunque no esté en fuentes
 
 # Prefijos de formato hosts
 HOST_PREFIXES = ("0.0.0.0 ", "127.0.0.1 ", ":: ", "::1 ")
 
-# Tokens típicos de reglas Adblock/AdGuard que NO queremos tratar como dominios
-ADBLOCK_TOKENS = ("||", "^", "*", "@@", "[", "]", "/", "##", "#@#")
+# Tokens típicos de reglas Adblock/AdGuard (entrada NO soportada)
+# Nota: evitamos filtrar por '*' / '[' / ']' para no tirar falsos positivos.
+ADBLOCK_PREFIXES = ("||", "@@", "##", "#@#")
 
 # Regex de dominio "clásico" (sin '_').
-# Si alguna vez querés permitir '_' en los labels, podés cambiar:
-#   [a-z0-9-]  -->  [a-z0-9_-]
 DOMAIN_RE = re.compile(
     r"^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)+$"
 )
@@ -39,7 +42,9 @@ stats = {
 def to_domain(line: str, *, update_stats: bool = True):
     """
     Normaliza una línea y devuelve un dominio válido o None.
-    Si update_stats es False, no modifica el contador de stats (útil para whitelist).
+    - Acepta entradas tipo "*.example.com" (las reduce a "example.com")
+    - Soporta entrada en formato hosts: "0.0.0.0 domain"
+    - Descarta reglas Adblock/AdGuard como entrada (no soportadas)
     """
     s = line.strip().lower()
     s = s.lstrip("\ufeff").replace("\r", "")
@@ -63,26 +68,34 @@ def to_domain(line: str, *, update_stats: bool = True):
     if " #" in s:
         s = s.split(" #", 1)[0].strip()
 
+    # Quita posible basura de extremos
+    s = s.strip(" <>")
+
+    # Soporta comodín simple tipo "*.example.com" tratándolo como "example.com"
+    if s.startswith("*."):
+        s = s[2:]
+
+    # Normaliza FQDN con trailing dot: "example.com." -> "example.com"
+    if s.endswith("."):
+        s = s[:-1]
+
     # URLs completas o con paths no las queremos
     if s.startswith(("http://", "https://")) or "://" in s or "/" in s:
         if update_stats:
             stats["urls"] += 1
         return None
 
-    # Descarta líneas que claramente son reglas Adblock/AdGuard
-    if any(tok in s for tok in ADBLOCK_TOKENS):
+    # Descarta reglas Adblock/AdGuard (entrada NO soportada)
+    if s.startswith(ADBLOCK_PREFIXES):
         if update_stats:
             stats["adblock_rules"] += 1
         return None
 
-    # No queremos dominios que empiecen o terminen con '.' o '*'
-    if s.startswith((".", "*")) or s.endswith((".", "*")):
+    # No queremos dominios que empiecen con '.'
+    if s.startswith("."):
         if update_stats:
             stats["invalid_domain"] += 1
         return None
-
-    # Quita posible basura de extremos
-    s = s.strip(" <>")
 
     # Ignora IPs v4 puras
     if re.fullmatch(r"\d+\.\d+\.\d+\.\d+", s):
@@ -110,6 +123,10 @@ def to_domain(line: str, *, update_stats: bool = True):
     return s
 
 
+def is_subdomain_or_same(domain: str, root: str) -> bool:
+    return domain == root or domain.endswith("." + root)
+
+
 def sha256sum(p: Path) -> str:
     h = hashlib.sha256()
     with open(p, "rb") as fh:
@@ -118,7 +135,9 @@ def sha256sum(p: Path) -> str:
     return h.hexdigest()
 
 
-# ---------- Carga de whitelist ----------
+# =========================
+# Load allow/deny (ajuste fino)
+# =========================
 whitelist = set()
 if WHITELIST_FILE.exists():
     with WHITELIST_FILE.open(encoding="utf-8", errors="ignore") as wf:
@@ -127,35 +146,55 @@ if WHITELIST_FILE.exists():
             if d:
                 whitelist.add(d)
 
-# ---------- Procesamiento principal ----------
+blacklist = set()
+if BLACKLIST_FILE.exists():
+    with BLACKLIST_FILE.open(encoding="utf-8", errors="ignore") as bf:
+        for line in bf:
+            d = to_domain(line, update_stats=False)
+            if d:
+                blacklist.add(d)
+
+# =========================
+# Main processing
+# =========================
 domains = set()
 
-# Lectura en streaming (mejor para listas grandes)
+if not RAW.exists():
+    raise SystemExit(f"ERROR: missing {RAW}")
+
 with RAW.open(encoding="utf-8", errors="ignore") as fh:
     for line in fh:
         d = to_domain(line, update_stats=True)
         if d:
             domains.add(d)
 
-# Aplica whitelist (dominios que NO queremos bloquear)
+# 1) Sumar blacklist (ajuste fino)
+if blacklist:
+    domains |= blacklist
+
+# 2) Aplicar whitelist (precedencia absoluta, por sufijo)
 if whitelist:
-    domains -= whitelist
+    wl = sorted(whitelist, key=len, reverse=True)
+    domains = {d for d in domains if not any(is_subdomain_or_same(d, w) for w in wl)}
 
 dom_sorted = sorted(domains)
 
-# ---------- Salidas ----------
-# Listas de dominios
-Path(BUILD / "domains.txt").write_text(
+# =========================
+# Outputs
+# =========================
+# Base limpia de dominios
+(BUILD / "domains.txt").write_text(
     "\n".join(dom_sorted) + ("\n" if dom_sorted else ""),
     encoding="utf-8",
 )
 
-Path(BUILD / "technitium-domains.txt").write_text(
+# Technitium domains
+(BUILD / "technitium-domains.txt").write_text(
     "\n".join(dom_sorted) + ("\n" if dom_sorted else ""),
     encoding="utf-8",
 )
 
-# Formato hosts (Pi-hole, Technitium, etc.)
+# Hosts (Pi-hole, Technitium, etc.)
 with open(BUILD / "pihole-hosts.txt", "w", encoding="utf-8", newline="\n") as f:
     for d in dom_sorted:
         f.write(f"0.0.0.0 {d}\n")
@@ -164,7 +203,7 @@ with open(BUILD / "technitium-hosts.txt", "w", encoding="utf-8", newline="\n") a
     for d in dom_sorted:
         f.write(f"0.0.0.0 {d}\n")
 
-# Formato Adblock / AdGuard
+# AdBlock / AdGuard rules (salida)
 with open(BUILD / "unified-adblock.txt", "w", encoding="utf-8", newline="\n") as f:
     for d in dom_sorted:
         f.write(f"||{d}^\n")
@@ -179,14 +218,14 @@ with open(BUILD / "dnsmasq.conf", "w", encoding="utf-8", newline="\n") as f:
         f.write(f"address=/{d}/0.0.0.0\n")
 
 # Unbound
-# Nota: estás usando always_nxdomain, que está bien.
-# Si en algún momento querés diferenciar "bloqueado" de "no existe",
-# podrías evaluar always_refuse, pero eso ya es una decisión de diseño.
+# Nota: local-zone para "example.com" afecta también subdominios (www.example.com, a.b.example.com, etc.)
 with open(BUILD / "unbound.conf", "w", encoding="utf-8", newline="\n") as f:
     for d in dom_sorted:
         f.write(f'local-zone: "{d}" always_nxdomain\n')
 
-# ---------- SHA256SUMS ----------
+# =========================
+# SHA256SUMS
+# =========================
 targets = [
     "domains.txt",
     "unified-adblock.txt",
@@ -204,9 +243,12 @@ with open(BUILD / "SHA256SUMS", "w", encoding="utf-8", newline="\n") as sums:
         if p.exists():
             sums.write(f"{sha256sum(p)}  {name}\n")
 
-# ---------- Logs finales ----------
-print(f"Domains (final, after whitelist): {len(dom_sorted)}")
-print(f"Whitelisted domains: {len(whitelist)}")
+# =========================
+# Logs
+# =========================
+print(f"Domains (final): {len(dom_sorted)}")
+print(f"Whitelisted (rules): {len(whitelist)}")
+print(f"Blacklisted extra (rules): {len(blacklist)}")
 print("Stats:")
 for k, v in stats.items():
     print(f"  {k}: {v}")
