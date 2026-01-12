@@ -17,6 +17,11 @@ googlesyndication.com
 googleadservices.com
 googletagmanager.com
 googletagservices.com
+analytics.google.com
+www.google-analytics.com
+ogads-pa.clients6.google.com
+crashlyticsreports-pa.googleapis.com
+federatedcompute-pa.googleapis.com
 
 # Servicios comunes
 github.com
