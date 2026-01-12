@@ -1,15 +1,16 @@
 name: Build unified adlist
 
 on:
-  # schedule:
-  #   - cron: "0 */12 * * *"
-  # push:
-  #   branches: [ main ]
-  #   paths:
-  #     - "sources.txt"
-  #     - "sources/**"
-  #     - "scripts/**"
-  #     - ".github/workflows/build.yml"
+  schedule:
+    - cron: "0 */12 * * *"
+  push:
+    branches: [ main ]
+    paths:
+      - "sources.txt"
+      - "blacklist.txt"
+      - "whitelist.txt"
+      - "scripts/**"
+      - ".github/workflows/build.yml"
   workflow_dispatch:
 
 permissions:
@@ -26,11 +27,13 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       tag: ${{ steps.meta.outputs.tag }}
+
     steps:
       - uses: actions/checkout@v4
 
       - name: Compute tag
         id: meta
+        shell: bash
         run: echo "tag=daily-$(date +%Y%m%d)" >> "$GITHUB_OUTPUT"
 
       - name: Set up Python
@@ -39,9 +42,37 @@ jobs:
           python-version: "3.11"
 
       - name: Install Python deps
+        shell: bash
         run: |
+          set -euo pipefail
           python -m pip install --upgrade pip
           pip install idna
+
+      - name: Show local rules (whitelist/blacklist)
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "== repo root =="
+          ls -la
+          echo
+          echo "== blacklist.txt (first 50 lines) =="
+          if [ -f blacklist.txt ]; then
+            sed -n '1,50p' blacklist.txt
+            echo
+            echo "blacklist lines: $(wc -l < blacklist.txt)"
+          else
+            echo "blacklist.txt not found"
+          fi
+          echo
+          echo "== whitelist.txt (first 50 lines) =="
+          if [ -f whitelist.txt ]; then
+            sed -n '1,50p' whitelist.txt
+            echo
+            echo "whitelist lines: $(wc -l < whitelist.txt)"
+          else
+            echo "whitelist.txt not found"
+          fi
+          echo
 
       - name: Build lists
         shell: bash
@@ -55,20 +86,54 @@ jobs:
             exit 1
           fi
 
-          # Download sources declared in sources.txt
+          echo "== downloading sources =="
+          ok=0
+          bad=0
+
           while IFS= read -r u; do
+            # 1) strip inline comments and trim
+            u="${u%%#*}"
+            u="$(echo "$u" | xargs || true)"
+
+            # 2) skip empty
             [ -z "${u:-}" ] && continue
+
+            # 3) only accept http(s)
+            if [[ ! "$u" =~ ^https?:// ]]; then
+              echo "SKIP (not a URL): $u"
+              continue
+            fi
+
             echo "downloading $u"
-            curl -fsSL "$u" >> tmp/raw.txt || true
-            echo >> tmp/raw.txt
+            # Fail on HTTP errors; retries for flakiness
+            if curl --retry 3 --retry-delay 2 -fsSL "$u" >> tmp/raw.txt; then
+              ok=$((ok+1))
+              echo >> tmp/raw.txt
+            else
+              bad=$((bad+1))
+              echo "ERROR: failed to download $u" >&2
+            fi
           done < sources.txt
 
-          # Generate outputs
+          echo "sources ok=$ok bad=$bad"
+          if [ "$ok" -eq 0 ]; then
+            echo "ERROR: zero sources downloaded. Aborting build." >&2
+            exit 1
+          fi
+          if [ "$bad" -gt 0 ]; then
+            echo "ERROR: one or more sources failed. Aborting build to avoid publishing incomplete list." >&2
+            exit 1
+          fi
+
+          echo "raw size: $(wc -c < tmp/raw.txt) bytes"
+          echo "== running sanitize =="
           python scripts/sanitize.py
 
       - name: Build index and .nojekyll
+        shell: bash
         run: |
-          echo "" > build/.nojekyll
+          set -euo pipefail
+          : > build/.nojekyll
           printf '%s\n' \
             '<!doctype html>' \
             '<html lang="es"><head><meta charset="utf-8"><title>Mikrotik Adlists</title><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font-family:sans-serif;max-width:900px;margin:2rem auto;line-height:1.6;padding:0 1rem}code,pre{background:#f4f4f4;padding:.2rem .4rem;border-radius:4px}a{color:#0056b3;text-decoration:none}a:hover{text-decoration:underline}footer{margin-top:2rem;font-size:.9em;color:#555}</style></head><body>' \
@@ -88,7 +153,9 @@ jobs:
             > build/index.html
 
       - name: Commit artifacts (repo)
+        shell: bash
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add build/
@@ -104,6 +171,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ needs.build.outputs.tag }}
