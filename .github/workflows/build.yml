@@ -1,15 +1,15 @@
 name: Build unified adlist
 
 on:
-  schedule:
-    - cron: "0 */12 * * *"
-  push:
-    branches: [ main ]
-    paths:
-      - "sources.txt"
-      - "sources/**"
-      - "scripts/**"
-      - ".github/workflows/build.yml"
+  # schedule:
+  #   - cron: "0 */12 * * *"
+  # push:
+  #   branches: [ main ]
+  #   paths:
+  #     - "sources.txt"
+  #     - "sources/**"
+  #     - "scripts/**"
+  #     - ".github/workflows/build.yml"
   workflow_dispatch:
 
 permissions:
