@@ -1,1 +1,5 @@
-0.0.0.0 *.net.anydesk.com
+net.anydesk.com
+mask.icloud.com
+mask-h2.icloud.com
+relay.icloud.com
+private-relay.apple.com
