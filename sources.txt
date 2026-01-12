@@ -24,4 +24,4 @@ https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/pro.txt
 # Protection against typosquatting & phishing
 # Format: DOMAINS
 # ------------------------------------------------
-https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/TypoDomains.txt
+https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Typo
