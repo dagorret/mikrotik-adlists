@@ -3,4 +3,3 @@ mask.icloud.com
 mask-h2.icloud.com
 relay.icloud.com
 private-relay.apple.com
-nada.net
