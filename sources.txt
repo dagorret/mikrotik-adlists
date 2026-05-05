@@ -10,14 +10,14 @@
 # Focus: malware, phishing, abusive tracking
 # Format: DOMAINS
 # ------------------------------------------------
-https://small.oisd.nl/domainswild2
+#https://small.oisd.nl/domainswild2
 
 # ------------------------------------------------
 # HaGeZi Pro (Domains)
 # Balanced security & privacy (non-aggressive)
 # Format: DOMAINS (including subdomains)
 # ------------------------------------------------
-https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/pro.txt
+#https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/pro.txt
 
 # ------------------------------------------------
 # ShadowWhisperer – Typo Domains
