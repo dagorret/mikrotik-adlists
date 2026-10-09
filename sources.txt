@@ -27,4 +27,4 @@
 https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Typo
 
 # Test list
-#https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
