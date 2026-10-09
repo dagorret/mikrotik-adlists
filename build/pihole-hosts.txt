@@ -407,6 +407,7 @@
 0.0.0.0 138shenbosbo.com
 0.0.0.0 13tabs.com
 0.0.0.0 14228.hittail.com
+0.0.0.0 1435575.fls.doubleclick.net
 0.0.0.0 145-ct.c3tag.com
 0.0.0.0 1456.api.swrve.com
 0.0.0.0 1456.content.swrve.com
@@ -737,6 +738,7 @@
 0.0.0.0 25184.hittail.com
 0.0.0.0 2530276768-doradztwo.storage.googleapis.com
 0.0.0.0 2533542.cc
+0.0.0.0 2542116.fls.doubleclick.net
 0.0.0.0 2560.fd.mobile.tv.sms13.de
 0.0.0.0 257639.com
 0.0.0.0 2578.api.swrve.com
@@ -919,6 +921,7 @@
 0.0.0.0 3211.tm.zedo.com
 0.0.0.0 321cba.com
 0.0.0.0 3241.hittail.com
+0.0.0.0 3243857.fls.doubleclick.net
 0.0.0.0 3285.api.swrve.com
 0.0.0.0 3285.content.swrve.com
 0.0.0.0 32e1dff65ea4eb3627ed-f1ecc94c86a56d3e42e512fcfd192886.r6.cf1.rackcdn.com
@@ -950,12 +953,14 @@
 0.0.0.0 360yield.com
 0.0.0.0 3616.api.swrve.com
 0.0.0.0 3616.content.swrve.com
+0.0.0.0 3642305.fls.doubleclick.net
 0.0.0.0 3650.tm.zedo.com
 0.0.0.0 365locksmithsminneapolis.com
 0.0.0.0 365redirect.co
 0.0.0.0 3696.api.swrve.com
 0.0.0.0 3696.content.swrve.com
 0.0.0.0 36c4.net
+0.0.0.0 3765329.fls.doubleclick.net
 0.0.0.0 3789.api.swrve.com
 0.0.0.0 3789.content.swrve.com
 0.0.0.0 3790.api.swrve.com
@@ -1084,6 +1089,7 @@
 0.0.0.0 4-fizjos.shop
 0.0.0.0 4.ackzany.com
 0.0.0.0 4.adsco.re
+0.0.0.0 4.afs.googleadservices.com
 0.0.0.0 4.athwartwhoafat.com
 0.0.0.0 4.blissfullyzebra.com
 0.0.0.0 4.dlevo.com
@@ -1101,6 +1107,7 @@
 0.0.0.0 404.online.net
 0.0.0.0 404.xxxymovies.com
 0.0.0.0 404mobi.com
+0.0.0.0 4053494.fls.doubleclick.net
 0.0.0.0 409.api.swrve.com
 0.0.0.0 409.content.swrve.com
 0.0.0.0 40bfb7fc.heftrucksbelgie.eu
@@ -1117,17 +1124,22 @@
 0.0.0.0 4184.stats.misstrends.com
 0.0.0.0 422653.parkingcrew.net
 0.0.0.0 423.ru
+0.0.0.0 4236808.fls.doubleclick.net
 0.0.0.0 4290042901-doradztwo.storage.googleapis.com
 0.0.0.0 4332.ws
+0.0.0.0 4394967.fls.doubleclick.net
 0.0.0.0 4421.api.swrve.com
 0.0.0.0 4421.content.swrve.com
 0.0.0.0 4422.api.swrve.com
 0.0.0.0 4422.content.swrve.com
+0.0.0.0 4436230.fls.doubleclick.net
 0.0.0.0 4445.api.swrve.com
 0.0.0.0 4445.content.swrve.com
+0.0.0.0 4448269.fls.doubleclick.net
 0.0.0.0 448ff4fcfcd199a.com
 0.0.0.0 4495.adj.st
 0.0.0.0 44chan.me
+0.0.0.0 4514783.fls.doubleclick.net
 0.0.0.0 4537654.click
 0.0.0.0 4560.hittail.com
 0.0.0.0 45676-tykp56.previewship.net
@@ -1163,6 +1175,8 @@
 0.0.0.0 489a19fa-d831-4954-858d-46436d5cdb20.event.collector.scopely.io
 0.0.0.0 489a19fa-d831-4954-858d-46436d5cdb20.register.collector.scopely.io
 0.0.0.0 4902-145639.link.iwanttodeliver.com
+0.0.0.0 4923503.fls.doubleclick.net
+0.0.0.0 4942839.fls.doubleclick.net
 0.0.0.0 4960230184-doradztwo.storage.googleapis.com
 0.0.0.0 4981220.sbs
 0.0.0.0 4af7c20b-7646-4fb7-b64f-ae0a8c51c1f1.register.collector.scopely.io
@@ -1376,6 +1390,7 @@
 0.0.0.0 5273094474-doradztwo.storage.googleapis.com
 0.0.0.0 5273111095-doradztwo.storage.googleapis.com
 0.0.0.0 5273128026-doradztwo.storage.googleapis.com
+0.0.0.0 5290727.fls.doubleclick.net
 0.0.0.0 529collegesaving.com
 0.0.0.0 529f7ddfc4.nxcli.io
 0.0.0.0 52d5836e.heftrucksbelgie.eu
@@ -1389,6 +1404,7 @@
 0.0.0.0 5342353000-doradztwo.storage.googleapis.com
 0.0.0.0 5342621972-doradztwo.storage.googleapis.com
 0.0.0.0 5342651654-doradztwo.storage.googleapis.com
+0.0.0.0 5362399.fls.doubleclick.net
 0.0.0.0 5372580367-prawnicy.storage.googleapis.com
 0.0.0.0 5372585531-doradztwo.storage.googleapis.com
 0.0.0.0 5372585531-firmy.storage.googleapis.com
@@ -1418,6 +1434,7 @@
 0.0.0.0 555355ip.top
 0.0.0.0 555455ip.top
 0.0.0.0 5562595389-prawnicy.storage.googleapis.com
+0.0.0.0 5582200.fls.doubleclick.net
 0.0.0.0 5591d769.vcstrucks.be
 0.0.0.0 55995-519009.link.iwanttodeliver.com
 0.0.0.0 562632.sbs
@@ -1993,6 +2010,7 @@
 0.0.0.0 8.duhquietly.com
 0.0.0.0 8.gadzooksrudely.com
 0.0.0.0 803.stats.misstrends.com
+0.0.0.0 80d4b6e40cc712bf92fcdbabdd4345fd.safeframe.googlesyndication.com
 0.0.0.0 81-sports.asadventure.sbs
 0.0.0.0 8131137229-biura.storage.googleapis.com
 0.0.0.0 8131137229-doradztwo.storage.googleapis.com
@@ -2006,17 +2024,21 @@
 0.0.0.0 8133787747-prawnicy.storage.googleapis.com
 0.0.0.0 8133838479-prawnicy.storage.googleapis.com
 0.0.0.0 815.hittail.com
+0.0.0.0 8168974.fls.doubleclick.net
 0.0.0.0 8178add5.vcstrading.com
 0.0.0.0 8181485079-prawnicy.storage.googleapis.com
 0.0.0.0 820.joomsearch.com
+0.0.0.0 8210643.fls.doubleclick.net
 0.0.0.0 8260.hittail.com
 0.0.0.0 8272171760-prawnicy.storage.googleapis.com
+0.0.0.0 8272590.fls.doubleclick.net
 0.0.0.0 8281400409-prawnicy.storage.googleapis.com
 0.0.0.0 829331534d183e7d1f6a-8d91cc88b27b979d0ea53a10ce8855ec.r96.cf5.rackcdn.com
 0.0.0.0 82o9v830.com
 0.0.0.0 832438.cyou
 0.0.0.0 834b9.rj6ggp.cfd
 0.0.0.0 8371723.lol
+0.0.0.0 8397396.fls.doubleclick.net
 0.0.0.0 83md.zr2nta.qpon
 0.0.0.0 83net.jp
 0.0.0.0 8418761.lat
@@ -2026,6 +2048,7 @@
 0.0.0.0 847211.sbs
 0.0.0.0 847271.lol
 0.0.0.0 847721.lat
+0.0.0.0 8482194.fls.doubleclick.net
 0.0.0.0 8491517833-prawnicy.storage.googleapis.com
 0.0.0.0 85103.hittail.com
 0.0.0.0 8518791821.click
@@ -2037,6 +2060,7 @@
 0.0.0.0 8522573785-prawnicy.storage.googleapis.com
 0.0.0.0 854.api.swrve.com
 0.0.0.0 85466576.top
+0.0.0.0 8563004.fls.doubleclick.net
 0.0.0.0 8563656.lat
 0.0.0.0 8567345.lat
 0.0.0.0 8574dnj3yzjace8c8io6zr9u3n.hop.clickbank.net
@@ -2149,6 +2173,7 @@
 0.0.0.0 8992936038-prawnicy.storage.googleapis.com
 0.0.0.0 8992974300-prawnicy.storage.googleapis.com
 0.0.0.0 899eec8.pics
+0.0.0.0 8a97175fd63e1d3a69f36979b9b34470.safeframe.googlesyndication.com
 0.0.0.0 8aidu.com
 0.0.0.0 8angkokairportonline.com
 0.0.0.0 8ankofamerica.com
@@ -3156,6 +3181,7 @@
 0.0.0.0 accountproof.boats
 0.0.0.0 accountprotection.xyz
 0.0.0.0 accounts-cfc51ca4.marketinglacocoa3.workers.dev
+0.0.0.0 accounts.doubleclick.net
 0.0.0.0 accounts.hoardispatch.art
 0.0.0.0 accounts.longmusic.com
 0.0.0.0 accounts.m-google.net
@@ -3306,9 +3332,11 @@
 0.0.0.0 acwagpt-digital.pages.dev
 0.0.0.0 acyclovir.1.p2l.info
 0.0.0.0 ad-411.com
+0.0.0.0 ad-ace.doubleclick.net
 0.0.0.0 ad-admin.vnay.vn
 0.0.0.0 ad-alp.net
 0.0.0.0 ad-analyze.jp
+0.0.0.0 ad-apac.doubleclick.net
 0.0.0.0 ad-api-v01.uliza.jp
 0.0.0.0 ad-arata.com
 0.0.0.0 ad-assets.futurecdn.net
@@ -3324,11 +3352,13 @@
 0.0.0.0 ad-delivery.net
 0.0.0.0 ad-dev.globalnoticias.pt
 0.0.0.0 ad-display.wikawika.xyz
+0.0.0.0 ad-emea.doubleclick.net
 0.0.0.0 ad-events.flashtalking.com
 0.0.0.0 ad-exchange.toast.com
 0.0.0.0 ad-feed.com
 0.0.0.0 ad-feeds.com
 0.0.0.0 ad-flow.com
+0.0.0.0 ad-g.doubleclick.net
 0.0.0.0 ad-gbn.com
 0.0.0.0 ad-generator.net
 0.0.0.0 ad-hatena.com
@@ -3424,6 +3454,7 @@
 0.0.0.0 ad.advertstream.com
 0.0.0.0 ad.adview.pl
 0.0.0.0 ad.adxcore.com
+0.0.0.0 ad.ae.doubleclick.net
 0.0.0.0 ad.afilo.pl
 0.0.0.0 ad.afy11.net
 0.0.0.0 ad.agilemedia.jp
@@ -3442,21 +3473,28 @@
 0.0.0.0 ad.apps.fm
 0.0.0.0 ad.apsalar.com
 0.0.0.0 ad.aquamediadirect.com
+0.0.0.0 ad.ar.doubleclick.net
 0.0.0.0 ad.asntown.net
 0.0.0.0 ad.aspm.jp
+0.0.0.0 ad.at.doubleclick.net
 0.0.0.0 ad.atdmt.com
+0.0.0.0 ad.au.doubleclick.net
 0.0.0.0 ad.auditude.com
 0.0.0.0 ad.bannerbank.ru
 0.0.0.0 ad.bannerhost.ru
 0.0.0.0 ad.batanga.com
 0.0.0.0 ad.batanga.net
+0.0.0.0 ad.be.doubleclick.net
 0.0.0.0 ad.beritasatumedia.com
+0.0.0.0 ad.bg.doubleclick.net
 0.0.0.0 ad.bitmedia.io
 0.0.0.0 ad.bizo.com
 0.0.0.0 ad.bnmla.com
 0.0.0.0 ad.bondage.com
+0.0.0.0 ad.br.doubleclick.net
 0.0.0.0 ad.broadstreetads.com
 0.0.0.0 ad.bubblestat.com
+0.0.0.0 ad.ca.doubleclick.net
 0.0.0.0 ad.caprofitx.adtdp.com
 0.0.0.0 ad.caprofitx.com
 0.0.0.0 ad.caradisiac.com
@@ -3464,8 +3502,11 @@
 0.0.0.0 ad.cctv.com
 0.0.0.0 ad.centrum.cz
 0.0.0.0 ad.cgi.cz
+0.0.0.0 ad.ch.doubleclick.net
 0.0.0.0 ad.cibleclick.com
+0.0.0.0 ad.cl.doubleclick.net
 0.0.0.0 ad.clickotmedia.com
+0.0.0.0 ad.cn.doubleclick.net
 0.0.0.0 ad.cooks.com
 0.0.0.0 ad.cosp.jp
 0.0.0.0 ad.cq-andc.jp
@@ -3474,18 +3515,21 @@
 0.0.0.0 ad.db3nf.com
 0.0.0.0 ad.dc2.adtech.de
 0.0.0.0 ad.ddo.jp
+0.0.0.0 ad.de.doubleclick.net
 0.0.0.0 ad.dedicatedmedia.com
 0.0.0.0 ad.depositfiles.com
 0.0.0.0 ad.deviantart.com
 0.0.0.0 ad.digitallook.com
 0.0.0.0 ad.directmirror.com
 0.0.0.0 ad.directrev.com
+0.0.0.0 ad.dk.doubleclick.net
 0.0.0.0 ad.dlbooks.to
 0.0.0.0 ad.dmm.com
 0.0.0.0 ad.dnoticias.pt
 0.0.0.0 ad.doganburda.com
 0.0.0.0 ad.domainfactory.de
 0.0.0.0 ad.donanimhaber.com
+0.0.0.0 ad.doubleclick.net
 0.0.0.0 ad.doublemax.net
 0.0.0.0 ad.douga-kan.com
 0.0.0.0 ad.download.cnet.com
@@ -3497,10 +3541,12 @@
 0.0.0.0 ad.ekonomikticaret.com
 0.0.0.0 ad.epochtimes.com
 0.0.0.0 ad.eporner.com
+0.0.0.0 ad.es.doubleclick.net
 0.0.0.0 ad.ettoday.net
 0.0.0.0 ad.eurosport.com
 0.0.0.0 ad.eva.vn
 0.0.0.0 ad.exyws.org
+0.0.0.0 ad.fi.doubleclick.net
 0.0.0.0 ad.filmweb.pl
 0.0.0.0 ad.firstadsolution.com
 0.0.0.0 ad.flipboard.com
@@ -3508,6 +3554,7 @@
 0.0.0.0 ad.flux.com
 0.0.0.0 ad.fout.jp
 0.0.0.0 ad.foxnetworks.com
+0.0.0.0 ad.fr.doubleclick.net
 0.0.0.0 ad.funpic.de
 0.0.0.0 ad.g-content.bid
 0.0.0.0 ad.garantiarkadas.com
@@ -3515,6 +3562,7 @@
 0.0.0.0 ad.ghfusion.com
 0.0.0.0 ad.go.com
 0.0.0.0 ad.goo.ne.jp
+0.0.0.0 ad.gr.doubleclick.net
 0.0.0.0 ad.grafika.cz
 0.0.0.0 ad.groupon.be
 0.0.0.0 ad.groupon.co.uk
@@ -3533,15 +3581,20 @@
 0.0.0.0 ad.heypo.com
 0.0.0.0 ad.hi5.com
 0.0.0.0 ad.himediadx.com
+0.0.0.0 ad.hk.doubleclick.net
 0.0.0.0 ad.horvitznewspapers.net
 0.0.0.0 ad.hot-mob.com
+0.0.0.0 ad.hr.doubleclick.net
+0.0.0.0 ad.hu.doubleclick.net
 0.0.0.0 ad.hyena.cz
 0.0.0.0 ad.icasthq.com
 0.0.0.0 ad.icheck.com.vn
 0.0.0.0 ad.iconadserver.com
+0.0.0.0 ad.ie.doubleclick.net
 0.0.0.0 ad.iinfo.cz
 0.0.0.0 ad.iloveinterracial.com
 0.0.0.0 ad.imediaaudiences.com
+0.0.0.0 ad.in.doubleclick.net
 0.0.0.0 ad.infoseek.com
 0.0.0.0 ad.insight.a-i-ad.com
 0.0.0.0 ad.insightexpress.com
@@ -3550,6 +3603,7 @@
 0.0.0.0 ad.intl.xiaomi.com
 0.0.0.0 ad.ipredictive.com
 0.0.0.0 ad.ir.ru
+0.0.0.0 ad.it.doubleclick.net
 0.0.0.0 ad.jamba.net
 0.0.0.0 ad.jamster.ca
 0.0.0.0 ad.jamster.com
@@ -3560,10 +3614,12 @@
 0.0.0.0 ad.jorte.com
 0.0.0.0 ad.jorudan.co.jp
 0.0.0.0 ad.jp.ap.valuecommerce.com
+0.0.0.0 ad.jp.doubleclick.net
 0.0.0.0 ad.kataweb.it
 0.0.0.0 ad.kau.li
 0.0.0.0 ad.keenspace.com
 0.0.0.0 ad.koreadaily.com
+0.0.0.0 ad.kr.doubleclick.net
 0.0.0.0 ad.krutilka.ru
 0.0.0.0 ad.land.to
 0.0.0.0 ad.lavanetwork.net
@@ -3593,6 +3649,7 @@
 0.0.0.0 ad.mediba.jp
 0.0.0.0 ad.mg
 0.0.0.0 ad.missena.io
+0.0.0.0 ad.mo.doubleclick.net
 0.0.0.0 ad.mobadme.jp
 0.0.0.0 ad.mobiuspace.net
 0.0.0.0 ad.monetate.net
@@ -3602,9 +3659,11 @@
 0.0.0.0 ad.mrtnsvr.com
 0.0.0.0 ad.mtburn.com
 0.0.0.0 ad.musicmatch.com
+0.0.0.0 ad.my.doubleclick.net
 0.0.0.0 ad.myapple.pl
 0.0.0.0 ad.myinstashot.com
 0.0.0.0 ad.mynetreklam.com.streamprovider.net
+0.0.0.0 ad.n2434.doubleclick.net
 0.0.0.0 ad.nachtagenten.de
 0.0.0.0 ad.native-ad.net
 0.0.0.0 ad.naver.com
@@ -3617,10 +3676,13 @@
 0.0.0.0 ad.nettvservices.com
 0.0.0.0 ad.network60.com
 0.0.0.0 ad.nicovideo.jp
+0.0.0.0 ad.nl.doubleclick.net
+0.0.0.0 ad.no.doubleclick.net
 0.0.0.0 ad.nozonedata.com
 0.0.0.0 ad.nttnavi.co.jp
 0.0.0.0 ad.ntvmsnbc.com
 0.0.0.0 ad.nwt.cz
+0.0.0.0 ad.nz.doubleclick.net
 0.0.0.0 ad.ohmynews.com
 0.0.0.0 ad.org.vn
 0.0.0.0 ad.ourgame.com
@@ -3631,6 +3693,7 @@
 0.0.0.0 ad.phunuxuavanay.vn
 0.0.0.0 ad.pickple.net
 0.0.0.0 ad.pitta.ne.jp
+0.0.0.0 ad.pl.doubleclick.net
 0.0.0.0 ad.policeone.com
 0.0.0.0 ad.polymorphicads.jp
 0.0.0.0 ad.pr.ameba.jp
@@ -3641,6 +3704,7 @@
 0.0.0.0 ad.profiwin.de
 0.0.0.0 ad.propellerads.com
 0.0.0.0 ad.prv.pl
+0.0.0.0 ad.pt.doubleclick.net
 0.0.0.0 ad.qq.com
 0.0.0.0 ad.qyer.com
 0.0.0.0 ad.reachlocal.com
@@ -3651,13 +3715,19 @@
 0.0.0.0 ad.repubblica.it
 0.0.0.0 ad.retargeter.com
 0.0.0.0 ad.rfp.fout.jp
+0.0.0.0 ad.ro.doubleclick.net
+0.0.0.0 ad.rs.doubleclick.net
+0.0.0.0 ad.ru.doubleclick.net
 0.0.0.0 ad.samsungadhub.com
+0.0.0.0 ad.se.doubleclick.net
 0.0.0.0 ad.search.ch
 0.0.0.0 ad.searchhound.com
 0.0.0.0 ad.searchteria.co.jp
 0.0.0.0 ad.sensismediasmart.com
 0.0.0.0 ad.sensismediasmart.com.au
+0.0.0.0 ad.sg.doubleclick.net
 0.0.0.0 ad.sgdgjarfpp123.com
+0.0.0.0 ad.si.doubleclick.net
 0.0.0.0 ad.simgames.net
 0.0.0.0 ad.sitemaji.com
 0.0.0.0 ad.slashgear.com
@@ -3672,6 +3742,8 @@
 0.0.0.0 ad.sunflower.vn
 0.0.0.0 ad.sxp.smartclip.net
 0.0.0.0 ad.technoratimedia.com
+0.0.0.0 ad.terra.doubleclick.net
+0.0.0.0 ad.th.doubleclick.net
 0.0.0.0 ad.thetyee.ca
 0.0.0.0 ad.thewheelof.com
 0.0.0.0 ad.thisav.com
@@ -3685,11 +3757,15 @@
 0.0.0.0 ad.turn.com
 0.0.0.0 ad.turn.com.akadns.net
 0.0.0.0 ad.tv2.no
+0.0.0.0 ad.tw.doubleclick.net
+0.0.0.0 ad.uk.doubleclick.net
 0.0.0.0 ad.universcine.com
+0.0.0.0 ad.us.doubleclick.net
 0.0.0.0 ad.usatoday.com
 0.0.0.0 ad.userporn.com
 0.0.0.0 ad.val.jp
 0.0.0.0 ad.valuecalling.com
+0.0.0.0 ad.ve.doubleclick.net
 0.0.0.0 ad.vidver.to
 0.0.0.0 ad.vidverto.io
 0.0.0.0 ad.vietbao.vn
@@ -3715,6 +3791,7 @@
 0.0.0.0 ad.yemeksepeti.com
 0.0.0.0 ad.yieldlab.net
 0.0.0.0 ad.yieldmanager.com
+0.0.0.0 ad.za.doubleclick.net
 0.0.0.0 ad.zaman.com
 0.0.0.0 ad.zanox.com
 0.0.0.0 ad.zing.vn
@@ -3813,6 +3890,7 @@
 0.0.0.0 ad2.cdns.turn.com
 0.0.0.0 ad2.checkm8.com
 0.0.0.0 ad2.cooks.com
+0.0.0.0 ad2.doubleclick.net
 0.0.0.0 ad2.doublepimp.com
 0.0.0.0 ad2.ero-advertising.com
 0.0.0.0 ad2.firehousezone.com
@@ -4106,6 +4184,7 @@
 0.0.0.0 adchoice.com
 0.0.0.0 adck.crooz.jp
 0.0.0.0 adclick.com
+0.0.0.0 adclick.g.doubleclick.net
 0.0.0.0 adclick.hit.gemius.pl
 0.0.0.0 adclickthru.net
 0.0.0.0 adclient-af.lp.uol.com.br
@@ -4166,6 +4245,7 @@
 0.0.0.0 addthiscdn.com
 0.0.0.0 addtop.trangvangvietnam.com
 0.0.0.0 ade.clmbtech.com
+0.0.0.0 ade.googlesyndication.com
 0.0.0.0 ade.wooboo.com.cn
 0.0.0.0 adebooks.fr
 0.0.0.0 adecn-w.atdmt.com
@@ -4686,6 +4766,7 @@
 0.0.0.0 ads-api.tiktok.com
 0.0.0.0 ads-api.twitter.com
 0.0.0.0 ads-bi.zenkube.com
+0.0.0.0 ads-bid.l.doubleclick.net
 0.0.0.0 ads-bidder-api.twitter.com
 0.0.0.0 ads-bilek.com
 0.0.0.0 ads-brand-postback.unityads.unity3d.com
@@ -6948,6 +7029,7 @@
 0.0.0.0 adx.chinmedia.vn
 0.0.0.0 adx.chip.de
 0.0.0.0 adx.dable.io
+0.0.0.0 adx.g.doubleclick.net
 0.0.0.0 adx.gayboy.at
 0.0.0.0 adx.groupstate.com
 0.0.0.0 adx.hasmobi.net
@@ -7644,6 +7726,7 @@
 0.0.0.0 afrmers.com
 0.0.0.0 afropuertomadrid-barajas.com
 0.0.0.0 afs.ero-advertising.com
+0.0.0.0 afs.googlesyndication.com
 0.0.0.0 aft.com
 0.0.0.0 afte.mopo.jp
 0.0.0.0 aftelecom.com.br
@@ -15736,6 +15819,7 @@
 0.0.0.0 analytics.gismart.xyz
 0.0.0.0 analytics.glance.inmobi.com
 0.0.0.0 analytics.global.sky.com
+0.0.0.0 analytics.google.com
 0.0.0.0 analytics.greenmountain.com
 0.0.0.0 analytics.greenmountainenergy.com
 0.0.0.0 analytics.harpercollins.com
@@ -19472,6 +19556,7 @@
 0.0.0.0 b1t-nydc1.zemanta.com
 0.0.0.0 b2-data.ads.heytapmobi.com
 0.0.0.0 b2b-update.appwrite.network
+0.0.0.0 b2b6d102cb7a4898bc54a3b73e31b759.safeframe.googlesyndication.com
 0.0.0.0 b2c-msm.marketo.com
 0.0.0.0 b2c.com
 0.0.0.0 b2m-agribusiness.com
@@ -22182,6 +22267,7 @@
 0.0.0.0 bid.axiatraders.com
 0.0.0.0 bid.contextweb.com
 0.0.0.0 bid.dr.socdm.com
+0.0.0.0 bid.g.doubleclick.net
 0.0.0.0 bid.openx.net
 0.0.0.0 bid.pubmatic.com
 0.0.0.0 bid.socdm.com
@@ -24617,6 +24703,7 @@
 0.0.0.0 button-share.zalo.me
 0.0.0.0 button.clickability.com
 0.0.0.0 buttons-config.sharethis.com
+0.0.0.0 buttons.googlesyndication.com
 0.0.0.0 butyasicspolska.com
 0.0.0.0 butycaterpillaroutlet.pl
 0.0.0.0 butyjonakparis.com
@@ -25036,6 +25123,7 @@
 0.0.0.0 c22.statcounter.com
 0.0.0.0 c23.statcounter.com
 0.0.0.0 c2366475.c.youradexchange.com
+0.0.0.0 c23811bc8d067cdb4f00f6af2c918f3d.safeframe.googlesyndication.com
 0.0.0.0 c24.statcounter.com
 0.0.0.0 c25.statcounter.com
 0.0.0.0 c26.statcounter.com
@@ -30196,6 +30284,7 @@
 0.0.0.0 cm.cn.miaozhen.com
 0.0.0.0 cm.everesttech.net
 0.0.0.0 cm.eyereturn.com
+0.0.0.0 cm.g.doubleclick.net
 0.0.0.0 cm.gammaplatform.com
 0.0.0.0 cm.imrworldwide.com
 0.0.0.0 cm.ipinyou.com
@@ -32189,6 +32278,7 @@
 0.0.0.0 creativemindhacks.com
 0.0.0.0 creatives.ads.memob.com
 0.0.0.0 creatives.crossinstall.com
+0.0.0.0 creatives.doubleclick.net
 0.0.0.0 creatives.gunosy.com
 0.0.0.0 creatives.lavanetwork.net
 0.0.0.0 creatives.livejasmin.com
@@ -33752,6 +33842,7 @@
 0.0.0.0 darmowyfilmzlektoremoas10.ek1.pl
 0.0.0.0 darseo.popunder.ru
 0.0.0.0 dart.chron.com
+0.0.0.0 dart.l.doubleclick.net
 0.0.0.0 dartoonnetwork.com
 0.0.0.0 dartry.fr
 0.0.0.0 darvenzurem.com
@@ -34951,6 +35042,7 @@
 0.0.0.0 dfoxnews.com
 0.0.0.0 dfp-gateway.s-onetag.com
 0.0.0.0 dfp.bouncex.net
+0.0.0.0 dfp.doubleclick.net
 0.0.0.0 dfqairport.com
 0.0.0.0 dfqwairport.com
 0.0.0.0 dfrankfurt-airport.com
@@ -38238,6 +38330,7 @@
 0.0.0.0 doubleclick.com
 0.0.0.0 doubleclick.de
 0.0.0.0 doubleclick.ne.jp
+0.0.0.0 doubleclick.net
 0.0.0.0 doublejtraders.com
 0.0.0.0 doublepimp.com
 0.0.0.0 doublepimpads.com
@@ -38326,6 +38419,7 @@
 0.0.0.0 dozpl.sale-se.top
 0.0.0.0 dp-medien.eu
 0.0.0.0 dp-sync.dotomi.com
+0.0.0.0 dp.g.doubleclick.net
 0.0.0.0 dp.specificclick.net
 0.0.0.0 dp1.33across.com
 0.0.0.0 dp2.specificclick.net
@@ -42696,6 +42790,7 @@
 0.0.0.0 facevook.com
 0.0.0.0 facewatch.borec.cz
 0.0.0.0 facewbook.com
+0.0.0.0 facf31c1c8559131d653f3c5ad4ecc78.safeframe.googlesyndication.com
 0.0.0.0 facfbook.com
 0.0.0.0 facfebook.com
 0.0.0.0 fachadasalaire.com
@@ -43426,6 +43521,7 @@
 0.0.0.0 feed.trafflow.com
 0.0.0.0 feed.validclick.com
 0.0.0.0 feeda.info
+0.0.0.0 feedads.g.doubleclick.net
 0.0.0.0 feedback.adrecover.com
 0.0.0.0 feedback.microsoft-hohm.com
 0.0.0.0 feedback.uc.cn
@@ -43534,6 +43630,7 @@
 0.0.0.0 fexex.com
 0.0.0.0 fexotuvanex-soft.com
 0.0.0.0 ff.connextra.com
+0.0.0.0 ff.doubleclick.net
 0.0.0.0 ff.imacdn.com
 0.0.0.0 ff1c0cc5.api.splkmobile.com
 0.0.0.0 ffacebook.com
@@ -44632,6 +44729,9 @@
 0.0.0.0 fls-fe.amazon-adsystem.com
 0.0.0.0 fls-na.amazon-adsystem.com
 0.0.0.0 fls-na.amazon.com
+0.0.0.0 fls.au.doubleclick.net
+0.0.0.0 fls.doubleclick.net
+0.0.0.0 fls.uk.doubleclick.net
 0.0.0.0 flsfo.com
 0.0.0.0 flsyfo.com
 0.0.0.0 flt2houston.com
@@ -46762,6 +46862,7 @@
 0.0.0.0 g.blogads.com
 0.0.0.0 g.c.appier.net
 0.0.0.0 g.cn.miaozhen.com
+0.0.0.0 g.doubleclick.net
 0.0.0.0 g.eclick.vn
 0.0.0.0 g.jwpsrv.com
 0.0.0.0 g.koowo.com
@@ -47179,6 +47280,7 @@
 0.0.0.0 g0tfedora.org
 0.0.0.0 g1-globo.com-b4.info
 0.0.0.0 g1-globosaude.com
+0.0.0.0 g1.doubleclick.net
 0.0.0.0 g1.idg.pl
 0.0.0.0 g1.v.fwmrm.net
 0.0.0.0 g13v.prd.ads.aws.fwmrm.net
@@ -47591,6 +47693,7 @@
 0.0.0.0 gamstop.com
 0.0.0.0 gamwestop.com
 0.0.0.0 gamwstop.com
+0.0.0.0 gan.doubleclick.net
 0.0.0.0 ganancarterio.com
 0.0.0.0 ganart.tv
 0.0.0.0 gandalf.younetmedia.com
@@ -52826,6 +52929,10 @@
 0.0.0.0 google7usercontent.com
 0.0.0.0 google8sercontent.com
 0.0.0.0 google8usercontent.com
+0.0.0.0 googleads.g.doubleclick.net
+0.0.0.0 googleads2.g.doubleclick.net
+0.0.0.0 googleads4.g.doubleclick.net
+0.0.0.0 googleadservices.com
 0.0.0.0 googleanalytics.com
 0.0.0.0 googlec.om
 0.0.0.0 googlecm.hit.gemius.pl
@@ -53073,6 +53180,9 @@
 0.0.0.0 googleshopping.sapoapps.vn
 0.0.0.0 googlesuercontent.com
 0.0.0.0 googlesusercontent.com
+0.0.0.0 googlesyndication.com
+0.0.0.0 googletagmanager.com
+0.0.0.0 googletagservices.com
 0.0.0.0 googleu5ercontent.com
 0.0.0.0 googleu7sercontent.com
 0.0.0.0 googleu8sercontent.com
@@ -65044,6 +65154,7 @@
 0.0.0.0 ir-jp.amazon-adsystem.com
 0.0.0.0 ir-na.amazon-adsystem.com
 0.0.0.0 ir-uk.amazon-adsystem.com
+0.0.0.0 ir.doubleclick.net
 0.0.0.0 ir.surveywall-api.survata.com
 0.0.0.0 ir1shtimes.com
 0.0.0.0 ir2.beap.gemini.yahoo.com
@@ -65511,6 +65622,7 @@
 0.0.0.0 iutnes.com
 0.0.0.0 iutunes.com
 0.0.0.0 iv-podatki.poldsku.com
+0.0.0.0 iv.doubleclick.net
 0.0.0.0 iv24.pl
 0.0.0.0 ivcicibank.com
 0.0.0.0 ivcloud.com
@@ -72732,6 +72844,7 @@
 0.0.0.0 m.clevernet.vn
 0.0.0.0 m.data.mob.com
 0.0.0.0 m.dlx.addthis.com
+0.0.0.0 m.doubleclick.net
 0.0.0.0 m.exactag.com
 0.0.0.0 m.fexiaen.com
 0.0.0.0 m.friendlyduck.com
@@ -74965,6 +75078,7 @@
 0.0.0.0 mediaview.globalmailer.com
 0.0.0.0 mediavine.com
 0.0.0.0 mediavire.com
+0.0.0.0 mediavisor.doubleclick.net
 0.0.0.0 mediavoice.com
 0.0.0.0 mediawayss.com
 0.0.0.0 mediaweaver.jp
@@ -78805,6 +78919,11 @@
 0.0.0.0 n3wdelhiairport.in
 0.0.0.0 n3wegg.com
 0.0.0.0 n4.nskfyl.com
+0.0.0.0 n4052ad.doubleclick.net
+0.0.0.0 n4061ad.hk.doubleclick.net
+0.0.0.0 n4061ad.jp.doubleclick.net
+0.0.0.0 n4403ad.doubleclick.net
+0.0.0.0 n479ad.doubleclick.net
 0.0.0.0 n4etflix.com
 0.0.0.0 n4ewarkairport.com
 0.0.0.0 n4ewdelhiairport.in
@@ -86669,8 +86788,13 @@
 0.0.0.0 page.ads.zalo.me
 0.0.0.0 page.widget.zalo.me
 0.0.0.0 pagead-googlehosted.l.google.com
+0.0.0.0 pagead.googlesyndication.com
+0.0.0.0 pagead.l.doubleclick.net
 0.0.0.0 pagead.l.google.com
 0.0.0.0 pagead.topobiavi.com
+0.0.0.0 pagead2.googleadservices.com
+0.0.0.0 pagead2.googlesyndication.com
+0.0.0.0 pagead46.l.doubleclick.net
 0.0.0.0 pagefair.com
 0.0.0.0 pageisloading.net
 0.0.0.0 pagepeel.ero-advertising.com
@@ -87171,6 +87295,7 @@
 0.0.0.0 partner.ah-ha.com
 0.0.0.0 partner.become.co.jp
 0.0.0.0 partner.ceneo.pl
+0.0.0.0 partner.googleadservices.com
 0.0.0.0 partner.knorex.com
 0.0.0.0 partner.magna.ru
 0.0.0.0 partner.pelikan.cz
@@ -87180,6 +87305,7 @@
 0.0.0.0 partner.tagscreator.com
 0.0.0.0 partner.wapacz.pl
 0.0.0.0 partner.wapster.pl
+0.0.0.0 partnerad.l.doubleclick.net
 0.0.0.0 partnerad.l.google.com
 0.0.0.0 partnerads.ysm.yahoo.com
 0.0.0.0 partnercash.de
@@ -87453,6 +87579,7 @@
 0.0.0.0 paypall.com
 0.0.0.0 paypalo.com
 0.0.0.0 paypalp.com
+0.0.0.0 paypalssl.doubleclick.net
 0.0.0.0 paypao.com
 0.0.0.0 paypaol.com
 0.0.0.0 paypap.com
@@ -91570,6 +91697,7 @@
 0.0.0.0 pub1.co
 0.0.0.0 pub2srv.com
 0.0.0.0 pubads-wiinvent.tv360.vn
+0.0.0.0 pubads.g.doubleclick.net
 0.0.0.0 pubads.wiinvent.tv
 0.0.0.0 pubdirecte.com
 0.0.0.0 pubfuture-ssp.com
@@ -95584,6 +95712,7 @@
 0.0.0.0 s.zzcdn.me
 0.0.0.0 s0-2mdn-net.l.google.com
 0.0.0.0 s0.2mdn.net
+0.0.0.0 s0.doubleclick.net
 0.0.0.0 s01-delivery.addynamo.net
 0.0.0.0 s01.delivery.addynamo.com
 0.0.0.0 s01.flagcounter.com
@@ -95659,6 +95788,7 @@
 0.0.0.0 s2.shinystat.com
 0.0.0.0 s2.statcounter.com
 0.0.0.0 s2.tracemyip.org
+0.0.0.0 s2.video.doubleclick.net
 0.0.0.0 s20dh7e9dh.com
 0.0.0.0 s212.ucoz.net
 0.0.0.0 s2150.t.eloqua.com
@@ -97295,6 +97425,7 @@
 0.0.0.0 securemypc.co.uk
 0.0.0.0 secureportal.skin
 0.0.0.0 secureportal.space
+0.0.0.0 securepubads.g.doubleclick.net
 0.0.0.0 secureredirect101.com
 0.0.0.0 securerr.com
 0.0.0.0 securerunner.com
@@ -103547,6 +103678,7 @@
 0.0.0.0 static.customers.fptad.com
 0.0.0.0 static.da1.vip.prod.criteo.net
 0.0.0.0 static.dable.io
+0.0.0.0 static.doubleclick.net
 0.0.0.0 static.download.mclick.mobi
 0.0.0.0 static.dtadnetwork.com
 0.0.0.0 static.dynad.net
@@ -103780,6 +103912,7 @@
 0.0.0.0 stats.foxcounter.com
 0.0.0.0 stats.freeonlinegames.com
 0.0.0.0 stats.ft.com
+0.0.0.0 stats.g.doubleclick.net
 0.0.0.0 stats.gamestop.com
 0.0.0.0 stats.gioneemobile.net
 0.0.0.0 stats.globesports.com
@@ -103806,6 +103939,7 @@
 0.0.0.0 stats.jpush.cn
 0.0.0.0 stats.kaltura.com
 0.0.0.0 stats.kumulos.com
+0.0.0.0 stats.l.doubleclick.net
 0.0.0.0 stats.lab.zalo.ai
 0.0.0.0 stats.ladotstats.nl
 0.0.0.0 stats.libresse.no
@@ -105356,6 +105490,7 @@
 0.0.0.0 survey.112.2o7.net
 0.0.0.0 survey.122.2o7.net
 0.0.0.0 survey.china.alibaba.com
+0.0.0.0 survey.g.doubleclick.net
 0.0.0.0 survey.nuggad.net
 0.0.0.0 survey.survicate.com
 0.0.0.0 survey.wootric.com
@@ -110450,6 +110585,7 @@
 0.0.0.0 tpat.api.vungle.akadns.net
 0.0.0.0 tpat.api.vungle.com
 0.0.0.0 tpbid.com
+0.0.0.0 tpc.googlesyndication.com
 0.0.0.0 tpc.hu
 0.0.0.0 tpciletsgo.112.2o7.net
 0.0.0.0 tpkyo-haneda.com
@@ -113303,6 +113439,7 @@
 0.0.0.0 uncut.oewabox.at
 0.0.0.0 uncvvensorious.info
 0.0.0.0 undadinor.de
+0.0.0.0 undefined.fls.doubleclick.net
 0.0.0.0 undependent.co.uk
 0.0.0.0 underarmoursklep.com
 0.0.0.0 underingru.store
@@ -115477,6 +115614,7 @@
 0.0.0.0 vidaxl.pl
 0.0.0.0 vidcpm.com
 0.0.0.0 videe.tv
+0.0.0.0 video-ad-stats.googlesyndication.com
 0.0.0.0 video-ads-apex.rubiconproject.com
 0.0.0.0 video-ads-module.ad-tech.nbcuni.com
 0.0.0.0 video-ads.rubiconproject.com
@@ -121071,6 +121209,8 @@
 0.0.0.0 www.423.ru
 0.0.0.0 www.4290042901-doradztwo.storage.googleapis.com
 0.0.0.0 www.4332.ws
+0.0.0.0 www.4436230.fls.doubleclick.net
+0.0.0.0 www.4448269.fls.doubleclick.net
 0.0.0.0 www.4537654.click
 0.0.0.0 www.45676-tykp56.previewship.net
 0.0.0.0 www.458192.top
@@ -126335,6 +126475,7 @@
 0.0.0.0 www.dotzup.com
 0.0.0.0 www.doubleclick.com
 0.0.0.0 www.doubleclick.ne.jp
+0.0.0.0 www.doubleclick.net
 0.0.0.0 www.doubleclickbygoogle.com
 0.0.0.0 www.doublejtraders.com
 0.0.0.0 www.doug.mc2saintbarthit.uk
@@ -128474,7 +128615,11 @@
 0.0.0.0 www.goodmenonthego.com
 0.0.0.0 www.goofbshirr.store
 0.0.0.0 www.googdiy.com
+0.0.0.0 www.google-analytics.com
 0.0.0.0 www.google-docs.org
+0.0.0.0 www.googleadservices.com
+0.0.0.0 www.googletagmanager.com
+0.0.0.0 www.googletagservices.com
 0.0.0.0 www.googlew.com
 0.0.0.0 www.googlre.com
 0.0.0.0 www.googlwe.com
@@ -141996,6 +142141,7 @@
 0.0.0.0 www3.clustrmaps.com
 0.0.0.0 www3.counter.bloke.com
 0.0.0.0 www3.doubleclick.com
+0.0.0.0 www3.doubleclick.net
 0.0.0.0 www3.game-advertising-online.com
 0.0.0.0 www3.haberturk.com
 0.0.0.0 www3.macys.com
