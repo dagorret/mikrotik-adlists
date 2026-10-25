@@ -1,4 +1,4 @@
-Name: Build unified adlist
+name: Build unified adlist
 
 on:
   schedule:
