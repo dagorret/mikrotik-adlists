@@ -186,6 +186,31 @@ El contenido se provee *tal cual*, sin garantía de exactitud ni completitud.
   - [GitHub Releases](https://github.com/dagorret/mikrotik-adlists/releases)
 
 ---
+### Ultima actualizacion: Optmimizacion de sanatize.py
+- **Filtrado de Whitelist hiperrápido ($O(k)$ en vez de $O(N \times M)$)**
+
+  - **Antes:** Por cada dominio procesado, el script recorría secuencialmente toda la whitelist para comprobar subdominios (`is_subdomain_or_same`). Con 200.000 dominios y 1.000 reglas en la whitelist, realizaba hasta **200 millones de comparaciones en Python**, bloqueando la ejecución.
+
+  - **Ahora:** La función `is_whitelisted` descompone la jerarquía del dominio (ej. `sub.ejemplo.com` $\rightarrow$ `ejemplo.com`) y hace búsquedas directas tipo *HashSet* en tiempo constante $O(1)$.
+
+- **Escritura en Streaming (Sin saturar RAM)**
+
+  - **Antes:** Guardaba los strings completos de cada archivo en la memoria mediante `.write_text()`, duplicando varias veces listas de gigas en la memoria RAM antes de guardarlas.
+
+  - **Ahora:** Mantiene abiertos los descriptores de archivo (`handles`) y escribe línea por línea en un solo bucle ordenado (`for d in dom_sorted`).
+
+- **Soporte para sintaxis de comentarios de AdGuard (`!`)**
+
+  - **Antes:** Las líneas que comenzaban con `!` (comunes en listas como ShadowWhisperer o HaGeZi) no se reconocían como comentarios.
+
+  - **Ahora:** Se ignoran desde el inicio en `to_domain` para no procesarlas como dominios inválidos.
+
+- **Optimización de lectura de bloques para SHA-256**
+
+  - **Antes:** Leía en bloques de `8 KB`.
+
+  - **Ahora:** Lee en bloques de `64 KB` (`65536 bytes`), aprovechando mejor las operaciones de E/S del disco en archivos grandes.
+
 
 **Última actualización:** generada automáticamente cada 12 horas mediante GitHub Actions  
 © 2025 [Carlos Dagorret](https://Dagorret.com.ar)
