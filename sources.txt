@@ -24,7 +24,28 @@
 # Protection against typosquatting & phishing
 # Format: DOMAINS
 # ------------------------------------------------
-https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Typo
+#https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Typo
 
 # Test list
+#https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+
+
+# ================================================
+# LISTAS PRINCIPALES (Seguridad, Privacidad y AdBlock)
+# ================================================
+
+# 1. OISD Small (La mejor balanceada del mundo)
+# Enfocada en privacidad y seguridad sin romper nada. Prácticamente 0 falsos positivos.
+https://small.oisd.nl/domainswild2
+
+# 2. HaGeZi Multi PRO (Opcional: Si buscas un filtrado más estricto)
+# Excelente mantenimiento diario. Elimina telemetría agresiva y publicidad.
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/pro.txt
+
+# 3. ShadowWhisperer – Typo Domains
+# Protección contra Phishing y sitios fraudulentos que imitan bancos/servicios.
+https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Typo
+
+# 4. StevenBlack / Hosts
+# La lista clásica consolidada de publicidad y rastreadores.
 https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
