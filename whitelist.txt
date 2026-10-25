@@ -36,3 +36,48 @@ cloudflare.com
 challenges.cloudflare.com
 fastly.net
 akamaihd.net
+
+
+# Streaming (TVs, FireTV, Roku, Android TV, SmartTVs)
+# Liberar el dominio raíz garantiza que pasen las métricas 
+# de inicio (logs/analytics) y las CDNs de video HD/4K
+
+
+# Netflix
+netflix.com
+netflix.net
+nflximg.net
+nflxext.com
+nflxso.net
+nflxvideo.net
+
+# Disney+ / Star+
+disneyplus.com
+disney.com
+bamgrid.com
+
+# Paramount+ / Pluto TV
+paramountplus.com
+paramount.com
+cbsinteractive.com
+cbsaavideo.com
+pluto.tv
+
+# Amazon Prime Video
+primevideo.com
+amazonvideo.com
+pv-cdn.net
+
+# HBO / Max
+max.com
+hbomax.com
+
+# Spotify
+spotify.com
+scdn.co
+
+# Licencias de protección de Video (DRM) y Smart TVs
+widevine.com
+samsungqbe.com
+lgtvcommon.com
+roku.com
