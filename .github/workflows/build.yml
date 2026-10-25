@@ -1,0 +1,198 @@
+name: Build unified adlist
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  push:
+    branches: [ main ]
+    paths:
+      - "sources.txt"
+      - "blacklist.txt"
+      - "whitelist.txt"
+      - "scripts/**"
+      - ".github/workflows/build.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.meta.outputs.tag }}
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Compute tag
+        id: meta
+        shell: bash
+        run: echo "tag=daily-$(date +%Y%m%d)" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install Python deps
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          pip install idna
+
+      - name: Show local rules (whitelist/blacklist)
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "== repo root =="
+          ls -la
+          echo
+          echo "== blacklist.txt (first 50 lines) =="
+          if [ -f blacklist.txt ]; then
+            sed -n '1,50p' blacklist.txt
+            echo
+            echo "blacklist lines: $(wc -l < blacklist.txt)"
+          else
+            echo "blacklist.txt not found"
+          fi
+          echo
+          echo "== whitelist.txt (first 50 lines) =="
+          if [ -f whitelist.txt ]; then
+            sed -n '1,50p' whitelist.txt
+            echo
+            echo "whitelist lines: $(wc -l < whitelist.txt)"
+          else
+            echo "whitelist.txt not found"
+          fi
+          echo
+
+      - name: Build lists
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build tmp
+          : > tmp/raw.txt
+
+          if [ ! -f sources.txt ]; then
+            echo "ERROR: missing sources.txt at repo root" >&2
+            exit 1
+          fi
+
+          echo "== downloading sources =="
+          ok=0
+          bad=0
+
+          while IFS= read -r u; do
+            u="${u%%#*}"
+            u="$(echo "$u" | xargs || true)"
+
+            [ -z "${u:-}" ] && continue
+
+            if [[ ! "$u" =~ ^https?:// ]]; then
+              echo "SKIP (not a URL): $u"
+              continue
+            fi
+
+            echo "downloading $u"
+            if curl --retry 3 --retry-delay 2 -fsSL "$u" >> tmp/raw.txt; then
+              ok=$((ok+1))
+              echo >> tmp/raw.txt
+            else
+              bad=$((bad+1))
+              echo "ERROR: failed to download $u" >&2
+            fi
+          done < sources.txt
+
+          echo "sources ok=$ok bad=$bad"
+          if [ "$ok" -eq 0 ]; then
+            echo "ERROR: zero sources downloaded. Aborting build." >&2
+            exit 1
+          fi
+          if [ "$bad" -gt 0 ]; then
+            echo "ERROR: one or more sources failed. Aborting build to avoid publishing incomplete list." >&2
+            exit 1
+          fi
+
+          echo "raw size: $(wc -c < tmp/raw.txt) bytes"
+          echo "== running sanitize =="
+          python scripts/sanitize.py
+
+      - name: Build index and .nojekyll
+        shell: bash
+        run: |
+          set -euo pipefail
+          : > build/.nojekyll
+          printf '%s\n' \
+            '<!doctype html>' \
+            '<html lang="es"><head><meta charset="utf-8"><title>Mikrotik Adlists</title><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font-family:sans-serif;max-width:900px;margin:2rem auto;line-height:1.6;padding:0 1rem}code,pre{background:#f4f4f4;padding:.2rem .4rem;border-radius:4px}a{color:#0056b3;text-decoration:none}a:hover{text-decoration:underline}footer{margin-top:2rem;font-size:.9em;color:#555}</style></head><body>' \
+            '<h1>mikrotik-adlists</h1>' \
+            '<p>Listas unificadas (MikroTik RouterOS 7, AdBlock, AdGuard, Technitium, Pi-hole, dnsmasq, Unbound)</p>' \
+            '<ul>' \
+            '<li><a href="mikrotik-adlist.txt"><strong>MikroTik Adlist (RouterOS v7)</strong></a></li>' \
+            '<li><a href="unified-adblock.txt">AdBlock / uBlock</a></li>' \
+            '<li><a href="unified-adguard.txt">AdGuard</a></li>' \
+            '<li><a href="technitium-domains.txt">Technitium dominios</a></li>' \
+            '<li><a href="technitium-hosts.txt">Technitium hosts</a></li>' \
+            '<li><a href="pihole-hosts.txt">Pi-hole</a></li>' \
+            '<li><a href="dnsmasq.conf">dnsmasq</a></li>' \
+            '<li><a href="unbound.conf">Unbound</a></li>' \
+            '<li><a href="domains.txt">Dominios base</a></li>' \
+            '<li><a href="SHA256SUMS">SHA256SUMS</a></li>' \
+            '</ul><footer>© 2026</footer></body></html>' \
+            > build/index.html
+
+      - name: Commit artifacts (repo)
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add build/
+          git commit -m "Daily build (sanitized)" || echo "No changes"
+          git push
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: build
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.build.outputs.tag }}
+          name: "Daily build ${{ needs.build.outputs.tag }}"
+          files: |
+            build/mikrotik-adlist.txt
+            build/domains.txt
+            build/unified-adblock.txt
+            build/unified-adguard.txt
+            build/technitium-domains.txt
+            build/technitium-hosts.txt
+            build/pihole-hosts.txt
+            build/dnsmasq.conf
+            build/unbound.conf
+            build/SHA256SUMS
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy_pages:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
