@@ -12,13 +12,13 @@ ytimg.com
 googlevideo.com
 
 # Google Ads / Analytics (no bloquear)
-#doubleclick.net
-#googlesyndication.com
-#googleadservices.com
-#googletagmanager.com
-#googletagservices.com
-#analytics.google.com
-#www.google-analytics.com
+doubleclick.net
+googlesyndication.com
+googleadservices.com
+googletagmanager.com
+googletagservices.com
+analytics.google.com
+www.google-analytics.com
 ogads-pa.clients6.google.com
 crashlyticsreports-pa.googleapis.com
 federatedcompute-pa.googleapis.com
