@@ -3,13 +3,13 @@
 # ================================================
 
 # 1. OISD Small (Excelente balance, 0 falsos positivos)
-https://small.oisd.nl/domainswild2
+# https://small.oisd.nl/domainswild2
 
 # 2. HaGeZi Multi PRO (URL Oficial Corregida)
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/pro.txt
 
 # 3. StevenBlack / Hosts (La clásica consolidada)
-https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+# https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
 
 # 4. ShadowWhisperer – Typo Domains (Phishing y Sitios Falsos)
 https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Typo
