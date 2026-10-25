@@ -4243,7 +4243,6 @@ adeobe.com
 adeptia.pl
 aderopuertomadrid-barajas.com
 adetracking.com
-adeventtracker.spotify.com
 adexc.net
 adexchangedirect.com
 adexchangegate.com
@@ -7855,7 +7854,6 @@ aiapp-pl-tech.com
 aiapp-smart-pl.com
 aibaba.com
 aibuy-api.aibuy.io
-aic.cdpbeacon.lgtvcommon.com
 aica.com
 aicanada.com
 aicleaner.shouji.360.cn
@@ -15575,7 +15573,6 @@ analytics.digital-metric.com
 analytics.directenergy.ca
 analytics.directenergy.com
 analytics.discountpowertx.com
-analytics.disneyplus.com
 analytics.donglogs.com
 analytics.dspunion.com
 analytics.eclick.vn
@@ -18455,7 +18452,6 @@ auss.com
 aussielive.site
 aussiemethod.com
 aussieplays.online
-austin.logs.roku.com
 austria.oewabox.at
 austrianairlines.122.2o7.net
 austrilexai.com
@@ -21241,7 +21237,6 @@ beacon.lijit.com
 beacon.livefyre.com
 beacon.lynx.cognitivlabs.com
 beacon.my.salesforce.com
-beacon.netflix.com
 beacon.qq.com
 beacon.quiltmc.org
 beacon.rallydev.com
@@ -27779,7 +27774,6 @@ cevy.com
 cewntrair.jp
 cf-ads.pinger.com
 cf-cdn.adventori.com
-cf-us-popular.dash.pv-cdn.net
 cf.addthis.com
 cf.ads.kontextua.com
 cf.adxcel.com
@@ -32796,7 +32790,6 @@ custom.yieldify.com
 customad.cnn.com
 customads.co
 customer.iad-03.braze.com
-customerevents.netflix.com
 customers-lidl.kameleoon.com
 customers.fptad.com
 customers.kameleoon.com
@@ -62025,7 +62018,6 @@ ichef.us.intellitxt.com
 ichemia.pl
 ichgcp.com
 ichisushi.fr
-ichnaea-web.netflix.com
 ichotels-ai.com
 ici8cibank.com
 ici9cibank.com
@@ -72018,9 +72010,7 @@ logs.gaana.com
 logs.hotstar.com
 logs.ironsrc.mobi
 logs.loggly.com
-logs.netflix.com
 logs.psm.wmcdp.io
-logs.roku.com
 logs.sanchoikns.vn
 logs.sexy-parade.com
 logs.spilgames.com
@@ -77318,7 +77308,6 @@ mobile.controller.duokanbox.com
 mobile.eum-appdynamics.com
 mobile.ib.sin1.geoadnxs.com
 mobile.juicyads.com
-mobile.logs.roku.com
 mobile.measurelib.com
 mobile.mng-ads.com
 mobile.novanet.vn
@@ -81399,7 +81388,6 @@ nmstatecollege.112.2o7.net
 nmtacoma.112.2o7.net
 nmthatsracin.112.2o7.net
 nmtoronto.112.2o7.net
-nmtracking.netflix.com
 nmtricity.112.2o7.net
 nmunich-airport.com
 nmvidia.com
@@ -86196,7 +86184,6 @@ os42ovau.eu.cc
 os7nnovatt.eu.cc
 os8novas.eu.cc
 osakadepo.com
-osb-ussvc.samsungqbe.com
 osb14ovah.eu.cc
 osbglmoail.com
 osd-onead.cdn.hinet.net
@@ -86585,7 +86572,6 @@ p.ad.gt
 p.addthis.com
 p.adnxs.com
 p.adrta.com
-p.ads.roku.com
 p.adsymptotic.com
 p.alcmpn.com
 p.algovid.com
@@ -88663,7 +88649,6 @@ pixel-origin.mathtag.com
 pixel-perfectas.lovable.app
 pixel-s2s.mathtag.com
 pixel-secure.solvemedia.com
-pixel-static.spotify.com
 pixel-sync.sitescout.com
 pixel-tracking.sonic-us.supersonicads.com
 pixel-us-east.rubiconproject.com
@@ -88729,7 +88714,6 @@ pixel.sitescout.com
 pixel.sojern.com
 pixel.solvemedia.com
 pixel.speakol.com
-pixel.spotify.com
 pixel.staticworld.net
 pixel.tapad.com
 pixel.vidoomy.com
@@ -90674,7 +90658,6 @@ presence-pc.fr.intellitxt.com
 presentation-ams1.turn.com
 presentation-atl1.turn.com
 presentation-hkg1.turn.com
-presentationtracking.netflix.com
 presetrabbits.com
 presidentialagent.com
 presmieronline.net
@@ -96183,7 +96166,6 @@ sanalytics.cartoonnetworkla.com
 sanalytics.chilevision.cl
 sanalytics.cnfanart.com
 sanalytics.cnnchile.com
-sanalytics.disneyplus.com
 sanalytics.enterprise.spectrum.com
 sanalytics.ewz.ch
 sanalytics.express.de
@@ -96808,7 +96790,6 @@ screenreach.net
 screensavers.us.intellitxt.com
 scrhotpoljk.lovable.app
 scribbens.fr
-scribe.logs.roku.com
 scribe.ttwitter.com
 scribe.twitter.com
 scrichit.org
@@ -97646,7 +97627,6 @@ serveradobe.co.cc
 serverc.shoofle.tv
 serverside4285.tagcommander.com
 servethis.com
-service-ad-impression-proxy.clusters.pluto.tv
 service-api.accesstrade.vn
 service-updater.com
 service.adlinknetwork.vn
@@ -119725,7 +119705,6 @@ wks.ero-advertising.com
 wkyharbor.com
 wkype.com
 wl.aniview.com.edgekey.net
-wl.spotify.com
 wlagreens.com
 wlamart.com
 wlaptoplogic.122.2o7.net

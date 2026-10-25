@@ -4243,7 +4243,6 @@
 0.0.0.0 adeptia.pl
 0.0.0.0 aderopuertomadrid-barajas.com
 0.0.0.0 adetracking.com
-0.0.0.0 adeventtracker.spotify.com
 0.0.0.0 adexc.net
 0.0.0.0 adexchangedirect.com
 0.0.0.0 adexchangegate.com
@@ -7855,7 +7854,6 @@
 0.0.0.0 aiapp-smart-pl.com
 0.0.0.0 aibaba.com
 0.0.0.0 aibuy-api.aibuy.io
-0.0.0.0 aic.cdpbeacon.lgtvcommon.com
 0.0.0.0 aica.com
 0.0.0.0 aicanada.com
 0.0.0.0 aicleaner.shouji.360.cn
@@ -15575,7 +15573,6 @@
 0.0.0.0 analytics.directenergy.ca
 0.0.0.0 analytics.directenergy.com
 0.0.0.0 analytics.discountpowertx.com
-0.0.0.0 analytics.disneyplus.com
 0.0.0.0 analytics.donglogs.com
 0.0.0.0 analytics.dspunion.com
 0.0.0.0 analytics.eclick.vn
@@ -18455,7 +18452,6 @@
 0.0.0.0 aussielive.site
 0.0.0.0 aussiemethod.com
 0.0.0.0 aussieplays.online
-0.0.0.0 austin.logs.roku.com
 0.0.0.0 austria.oewabox.at
 0.0.0.0 austrianairlines.122.2o7.net
 0.0.0.0 austrilexai.com
@@ -21241,7 +21237,6 @@
 0.0.0.0 beacon.livefyre.com
 0.0.0.0 beacon.lynx.cognitivlabs.com
 0.0.0.0 beacon.my.salesforce.com
-0.0.0.0 beacon.netflix.com
 0.0.0.0 beacon.qq.com
 0.0.0.0 beacon.quiltmc.org
 0.0.0.0 beacon.rallydev.com
@@ -27779,7 +27774,6 @@
 0.0.0.0 cewntrair.jp
 0.0.0.0 cf-ads.pinger.com
 0.0.0.0 cf-cdn.adventori.com
-0.0.0.0 cf-us-popular.dash.pv-cdn.net
 0.0.0.0 cf.addthis.com
 0.0.0.0 cf.ads.kontextua.com
 0.0.0.0 cf.adxcel.com
@@ -32796,7 +32790,6 @@
 0.0.0.0 customad.cnn.com
 0.0.0.0 customads.co
 0.0.0.0 customer.iad-03.braze.com
-0.0.0.0 customerevents.netflix.com
 0.0.0.0 customers-lidl.kameleoon.com
 0.0.0.0 customers.fptad.com
 0.0.0.0 customers.kameleoon.com
@@ -62025,7 +62018,6 @@
 0.0.0.0 ichemia.pl
 0.0.0.0 ichgcp.com
 0.0.0.0 ichisushi.fr
-0.0.0.0 ichnaea-web.netflix.com
 0.0.0.0 ichotels-ai.com
 0.0.0.0 ici8cibank.com
 0.0.0.0 ici9cibank.com
@@ -72018,9 +72010,7 @@
 0.0.0.0 logs.hotstar.com
 0.0.0.0 logs.ironsrc.mobi
 0.0.0.0 logs.loggly.com
-0.0.0.0 logs.netflix.com
 0.0.0.0 logs.psm.wmcdp.io
-0.0.0.0 logs.roku.com
 0.0.0.0 logs.sanchoikns.vn
 0.0.0.0 logs.sexy-parade.com
 0.0.0.0 logs.spilgames.com
@@ -77318,7 +77308,6 @@
 0.0.0.0 mobile.eum-appdynamics.com
 0.0.0.0 mobile.ib.sin1.geoadnxs.com
 0.0.0.0 mobile.juicyads.com
-0.0.0.0 mobile.logs.roku.com
 0.0.0.0 mobile.measurelib.com
 0.0.0.0 mobile.mng-ads.com
 0.0.0.0 mobile.novanet.vn
@@ -81399,7 +81388,6 @@
 0.0.0.0 nmtacoma.112.2o7.net
 0.0.0.0 nmthatsracin.112.2o7.net
 0.0.0.0 nmtoronto.112.2o7.net
-0.0.0.0 nmtracking.netflix.com
 0.0.0.0 nmtricity.112.2o7.net
 0.0.0.0 nmunich-airport.com
 0.0.0.0 nmvidia.com
@@ -86196,7 +86184,6 @@
 0.0.0.0 os7nnovatt.eu.cc
 0.0.0.0 os8novas.eu.cc
 0.0.0.0 osakadepo.com
-0.0.0.0 osb-ussvc.samsungqbe.com
 0.0.0.0 osb14ovah.eu.cc
 0.0.0.0 osbglmoail.com
 0.0.0.0 osd-onead.cdn.hinet.net
@@ -86585,7 +86572,6 @@
 0.0.0.0 p.addthis.com
 0.0.0.0 p.adnxs.com
 0.0.0.0 p.adrta.com
-0.0.0.0 p.ads.roku.com
 0.0.0.0 p.adsymptotic.com
 0.0.0.0 p.alcmpn.com
 0.0.0.0 p.algovid.com
@@ -88663,7 +88649,6 @@
 0.0.0.0 pixel-perfectas.lovable.app
 0.0.0.0 pixel-s2s.mathtag.com
 0.0.0.0 pixel-secure.solvemedia.com
-0.0.0.0 pixel-static.spotify.com
 0.0.0.0 pixel-sync.sitescout.com
 0.0.0.0 pixel-tracking.sonic-us.supersonicads.com
 0.0.0.0 pixel-us-east.rubiconproject.com
@@ -88729,7 +88714,6 @@
 0.0.0.0 pixel.sojern.com
 0.0.0.0 pixel.solvemedia.com
 0.0.0.0 pixel.speakol.com
-0.0.0.0 pixel.spotify.com
 0.0.0.0 pixel.staticworld.net
 0.0.0.0 pixel.tapad.com
 0.0.0.0 pixel.vidoomy.com
@@ -90674,7 +90658,6 @@
 0.0.0.0 presentation-ams1.turn.com
 0.0.0.0 presentation-atl1.turn.com
 0.0.0.0 presentation-hkg1.turn.com
-0.0.0.0 presentationtracking.netflix.com
 0.0.0.0 presetrabbits.com
 0.0.0.0 presidentialagent.com
 0.0.0.0 presmieronline.net
@@ -96183,7 +96166,6 @@
 0.0.0.0 sanalytics.chilevision.cl
 0.0.0.0 sanalytics.cnfanart.com
 0.0.0.0 sanalytics.cnnchile.com
-0.0.0.0 sanalytics.disneyplus.com
 0.0.0.0 sanalytics.enterprise.spectrum.com
 0.0.0.0 sanalytics.ewz.ch
 0.0.0.0 sanalytics.express.de
@@ -96808,7 +96790,6 @@
 0.0.0.0 screensavers.us.intellitxt.com
 0.0.0.0 scrhotpoljk.lovable.app
 0.0.0.0 scribbens.fr
-0.0.0.0 scribe.logs.roku.com
 0.0.0.0 scribe.ttwitter.com
 0.0.0.0 scribe.twitter.com
 0.0.0.0 scrichit.org
@@ -97646,7 +97627,6 @@
 0.0.0.0 serverc.shoofle.tv
 0.0.0.0 serverside4285.tagcommander.com
 0.0.0.0 servethis.com
-0.0.0.0 service-ad-impression-proxy.clusters.pluto.tv
 0.0.0.0 service-api.accesstrade.vn
 0.0.0.0 service-updater.com
 0.0.0.0 service.adlinknetwork.vn
@@ -119725,7 +119705,6 @@
 0.0.0.0 wkyharbor.com
 0.0.0.0 wkype.com
 0.0.0.0 wl.aniview.com.edgekey.net
-0.0.0.0 wl.spotify.com
 0.0.0.0 wlagreens.com
 0.0.0.0 wlamart.com
 0.0.0.0 wlaptoplogic.122.2o7.net
