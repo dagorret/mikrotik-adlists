@@ -1,30 +1,15 @@
-# ================================
-# Canonical DNS blocklist sources
-# Supported formats: DOMAINS / HOSTS
-# Goal: Security & privacy without breaking usability
-# ================================
+# ================================================
+# LISTAS PRINCIPALES DE BLOQUEO (Probadas y Activas)
+# ================================================
 
-# ------------------------------------------------
-# OISD Small
-# Very well curated, low false positives
-# Focus: malware, phishing, abusive tracking
-# Format: DOMAINS
-# ------------------------------------------------
+# 1. OISD Small (Excelente balance, 0 falsos positivos)
 https://small.oisd.nl/domainswild2
 
-# ------------------------------------------------
-# HaGeZi Pro (Domains)
-# Balanced security & privacy (non-aggressive)
-# Format: DOMAINS (including subdomains)
-# ------------------------------------------------
-https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/pro.txt
+# 2. HaGeZi Multi PRO (URL Oficial Corregida)
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/pro.txt
 
-# ------------------------------------------------
-# ShadowWhisperer – Typo Domains
-# Protection against typosquatting & phishing
-# Format: DOMAINS
-# ------------------------------------------------
+# 3. StevenBlack / Hosts (La clásica consolidada)
+https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+
+# 4. ShadowWhisperer – Typo Domains (Phishing y Sitios Falsos)
 https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Typo
-
-# Test list
-#https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
