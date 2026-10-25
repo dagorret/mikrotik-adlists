@@ -5,21 +5,18 @@ from pathlib import Path
 import idna
 
 # =========================
-# Base paths (robusto)
+# Base paths
 # =========================
-# scripts/sanitize.py  -> repo root = parents[1]
 BASE = Path(__file__).resolve().parents[1]
 
 RAW = BASE / "tmp" / "raw.txt"
 BUILD = BASE / "build"
 BUILD.mkdir(parents=True, exist_ok=True)
 
-WHITELIST_FILE = BASE / "whitelist.txt"   # siempre gana
-BLACKLIST_FILE = BASE / "blacklist.txt"   # se suma siempre
+WHITELIST_FILE = BASE / "whitelist.txt"
+BLACKLIST_FILE = BASE / "blacklist.txt"
 
 HOST_PREFIXES = ("0.0.0.0 ", "127.0.0.1 ", ":: ", "::1 ")
-
-# Regex de dominio "clásico" (sin '_').
 DOMAIN_RE = re.compile(
     r"^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)+$"
 )
@@ -36,16 +33,6 @@ stats = {
 }
 
 def extract_from_adblock(s: str):
-    """
-    Soporta reglas simples:
-      ||example.com^
-      @@||example.com^$important
-      ||example.com^$third-party
-    Devuelve dominio o None si no es parseable como dominio simple.
-    """
-    original = s
-
-    # allowlist simple
     if s.startswith("@@||"):
         s = s[4:]
     elif s.startswith("||"):
@@ -53,14 +40,12 @@ def extract_from_adblock(s: str):
     else:
         return None
 
-    # cortar en ^ y $
     if "^" in s:
         s = s.split("^", 1)[0]
     if "$" in s:
         s = s.split("$", 1)[0]
 
     s = s.strip()
-    # si quedó vacío o tiene cosas raras, descartamos
     if not s or "/" in s or "*" in s:
         return None
 
@@ -73,39 +58,33 @@ def to_domain(line: str, *, update_stats: bool = True):
     if update_stats:
         stats["total_lines"] += 1
 
-    if not s or s.startswith("#"):
+    if not s or s.startswith("#") or s.startswith("!"):
         if update_stats:
             stats["empty_or_comment"] += 1
         return None
 
-    # hosts format: "0.0.0.0 domain"
     for p in HOST_PREFIXES:
         if s.startswith(p):
             s = s[len(p):].strip()
             s = s.split()[0] if s else ""
             break
 
-    # inline comments: "domain.com # comment"
     if " #" in s:
         s = s.split(" #", 1)[0].strip()
 
     s = s.strip(" <>")
 
-    # wildcard "*.example.com" -> "example.com"
     if s.startswith("*."):
         s = s[2:]
 
-    # trailing dot
     if s.endswith("."):
         s = s[:-1]
 
-    # URLs
     if s.startswith(("http://", "https://")) or "://" in s or "/" in s:
         if update_stats:
             stats["urls"] += 1
         return None
 
-    # Adblock/AdGuard simple -> dominio
     if s.startswith("||") or s.startswith("@@||"):
         d = extract_from_adblock(s)
         if d:
@@ -117,7 +96,6 @@ def to_domain(line: str, *, update_stats: bool = True):
                 stats["adblock_rules_skipped"] += 1
             return None
 
-    # reglas cosméticas u otras no soportadas
     if s.startswith(("##", "#@#", "@@")):
         if update_stats:
             stats["adblock_rules_skipped"] += 1
@@ -128,13 +106,11 @@ def to_domain(line: str, *, update_stats: bool = True):
             stats["invalid_domain"] += 1
         return None
 
-    # IPv4 pura
     if re.fullmatch(r"\d+\.\d+\.\d+\.\d+", s):
         if update_stats:
             stats["ips"] += 1
         return None
 
-    # IDNA
     try:
         s = idna.encode(s).decode("ascii")
     except Exception:
@@ -151,18 +127,26 @@ def to_domain(line: str, *, update_stats: bool = True):
         stats["valid_domains"] += 1
     return s
 
-def is_subdomain_or_same(domain: str, root: str) -> bool:
-    return domain == root or domain.endswith("." + root)
+def is_whitelisted(domain: str, whitelist_set: set) -> bool:
+    """Comprobación de subdominios en O(k) basada en jerarquía de etiquetas."""
+    if domain in whitelist_set:
+        return True
+    parts = domain.split(".")
+    for i in range(1, len(parts) - 1):
+        parent = ".".join(parts[i:])
+        if parent in whitelist_set:
+            return True
+    return False
 
 def sha256sum(p: Path) -> str:
     h = hashlib.sha256()
     with open(p, "rb") as fh:
-        for chunk in iter(lambda: fh.read(8192), b""):
+        for chunk in iter(lambda: fh.read(65536), b""):
             h.update(chunk)
     return h.hexdigest()
 
 # =========================
-# Load allow/deny
+# Carga de Whitelist y Blacklist
 # =========================
 whitelist = set()
 if WHITELIST_FILE.exists():
@@ -181,10 +165,10 @@ if BLACKLIST_FILE.exists():
                 blacklist.add(d)
 
 # =========================
-# Main processing
+# Procesamiento Principal
 # =========================
 if not RAW.exists():
-    raise SystemExit(f"ERROR: missing {RAW}")
+    raise SystemExit(f"ERROR: No se encontró el archivo de origen {RAW}")
 
 domains = set()
 with RAW.open(encoding="utf-8", errors="ignore") as fh:
@@ -193,68 +177,53 @@ with RAW.open(encoding="utf-8", errors="ignore") as fh:
         if d:
             domains.add(d)
 
-# sumar blacklist propia
 domains |= blacklist
 
-# aplicar whitelist (quita w y subdominios)
 if whitelist:
-    wl = sorted(whitelist, key=len, reverse=True)
-    domains = {d for d in domains if not any(is_subdomain_or_same(d, w) for w in wl)}
+    domains = {d for d in domains if not is_whitelisted(d, whitelist)}
 
 dom_sorted = sorted(domains)
 
 # =========================
-# Outputs
+# Escritura Eficiente de Salidas
 # =========================
-(BUILD / "domains.txt").write_text("\n".join(dom_sorted) + ("\n" if dom_sorted else ""), encoding="utf-8")
-(BUILD / "technitium-domains.txt").write_text("\n".join(dom_sorted) + ("\n" if dom_sorted else ""), encoding="utf-8")
-
-with open(BUILD / "pihole-hosts.txt", "w", encoding="utf-8", newline="\n") as f:
-    for d in dom_sorted:
-        f.write(f"0.0.0.0 {d}\n")
-
-with open(BUILD / "technitium-hosts.txt", "w", encoding="utf-8", newline="\n") as f:
-    for d in dom_sorted:
-        f.write(f"0.0.0.0 {d}\n")
-
-with open(BUILD / "unified-adblock.txt", "w", encoding="utf-8", newline="\n") as f:
-    for d in dom_sorted:
-        f.write(f"||{d}^\n")
-
-with open(BUILD / "unified-adguard.txt", "w", encoding="utf-8", newline="\n") as f:
-    for d in dom_sorted:
-        f.write(f"||{d}^\n")
-
-with open(BUILD / "dnsmasq.conf", "w", encoding="utf-8", newline="\n") as f:
-    for d in dom_sorted:
-        f.write(f"address=/{d}/0.0.0.0\n")
-
-with open(BUILD / "unbound.conf", "w", encoding="utf-8", newline="\n") as f:
-    f.write("server:\n")
-    for d in dom_sorted:
-        f.write(f'  local-zone: "{d}" always_nxdomain\n')
-
-targets = [
+out_files = [
     "domains.txt",
+    "technitium-domains.txt",
+    "pihole-hosts.txt",
+    "technitium-hosts.txt",
     "unified-adblock.txt",
     "unified-adguard.txt",
-    "technitium-domains.txt",
-    "technitium-hosts.txt",
-    "pihole-hosts.txt",
     "dnsmasq.conf",
     "unbound.conf",
 ]
 
+handles = {name: open(BUILD / name, "w", encoding="utf-8", newline="\n") for name in out_files}
+handles["unbound.conf"].write("server:\n")
+
+for d in dom_sorted:
+    handles["domains.txt"].write(f"{d}\n")
+    handles["technitium-domains.txt"].write(f"{d}\n")
+    handles["pihole-hosts.txt"].write(f"0.0.0.0 {d}\n")
+    handles["technitium-hosts.txt"].write(f"0.0.0.0 {d}\n")
+    handles["unified-adblock.txt"].write(f"||{d}^\n")
+    handles["unified-adguard.txt"].write(f"||{d}^\n")
+    handles["dnsmasq.conf"].write(f"address=/{d}/0.0.0.0\n")
+    handles["unbound.conf"].write(f'  local-zone: "{d}" always_nxdomain\n')
+
+for h in handles.values():
+    h.close()
+
 with open(BUILD / "SHA256SUMS", "w", encoding="utf-8", newline="\n") as sums:
-    for name in targets:
+    for name in out_files:
         p = BUILD / name
         if p.exists():
             sums.write(f"{sha256sum(p)}  {name}\n")
 
 print(f"Repo base: {BASE}")
-print(f"Domains (final): {len(dom_sorted)}")
-print(f"Whitelisted (rules): {len(whitelist)}")
-print(f"Blacklisted extra (rules): {len(blacklist)}")
-print("Stats:")
+print(f"Dominios finales: {len(dom_sorted)}")
+print(f"Reglas en Whitelist: {len(whitelist)}")
+print(f"Reglas en Blacklist extra: {len(blacklist)}")
+print("Estadísticas:")
 for k, v in stats.items():
     print(f"  {k}: {v}")
