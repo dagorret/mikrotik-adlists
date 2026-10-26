@@ -3,6 +3,7 @@
 # ==========================
 cloudfront.net
 amazonaws.com
+google.com
 googleusercontent.com
 googleapis.com
 gstatic.com
@@ -69,3 +70,26 @@ buyadr.com
 samsungqbe.com
 lgtvcommon.com
 roku.com
+
+# ==========================
+# OpenAI / ChatGPT / Claude
+# ==========================
+chatgpt.com
+openai.com
+oaistatic.com
+oaiusercontent.com
+claude.ai
+anthropic.com
+
+# ==========================
+# Juegos móviles & Recompensas (Mobile Ads/Auth)
+# ==========================
+doubleclick.net
+googlesyndication.com
+unity3d.com
+unityservices.com
+applovin.com
+applvn.com
+vungle.com
+ironsrc.com
+is.com
