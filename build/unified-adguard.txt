@@ -12936,7 +12936,6 @@
 ||ad-courier.com^
 ||ad-creative.projectcarmen.com^
 ||ad-creative.pstatic.net^
-||ad-creatives-public.commondatastorage.googleapis.com^
 ||ad-delivery.net^
 ||ad-detector.appbrain.com^
 ||ad-display.wikawika.xyz^
@@ -15227,7 +15226,6 @@
 ||admob.com^
 ||admob.dk^
 ||admob.google.com^
-||admob.googleapis.com^
 ||admob.no^
 ||admobe.com^
 ||admobile.top^
@@ -18165,7 +18163,6 @@
 ||adsmarket.com^
 ||adsmarket.weblike.ro^
 ||adsmarketingwebp13n-pa.clients6.google.com^
-||adsmarketingwebp13n-pa.googleapis.com^
 ||adsmart.co.uk^
 ||adsmart.com^
 ||adsmart.hk^
@@ -32804,7 +32801,6 @@
 ||analytics.goodrx.com^
 ||analytics.goodysell.com^
 ||analytics.google.com^
-||analytics.googleapis.com^
 ||analytics.googlie.vip^
 ||analytics.gooned.app^
 ||analytics.gooogol.com^
@@ -36045,7 +36041,6 @@
 ||analytics68.techsmith.com^
 ||analytics8.com.au^
 ||analytics8.successfactors.com^
-||analyticsadmin.googleapis.com^
 ||analyticsapi.happypancake.net^
 ||analyticsapi.qogita.com^
 ||analyticsapi.shipstation.com^
@@ -36055,19 +36050,15 @@
 ||analyticsbusiness.ing.ro^
 ||analyticscdn.shipstation.com^
 ||analyticscdn.stamps.com^
-||analyticsdata.googleapis.com^
 ||analyticsdcs.ccs.mcafee.com^
 ||analyticsehnwe.servicebus.windows.net^
 ||analyticseu.weber.com^
 ||analyticsext.trafikverket.se^
 ||analyticsgateway.com^
 ||analyticshipaa.cloud.coveo.com^
-||analyticshub.googleapis.com^
 ||analyticsinhr.activehosted.com^
 ||analyticsinjest.txni.dev^
-||analyticsinsights-pa.googleapis.com^
 ||analyticsip.net^
-||analyticsmobile-pa.googleapis.com^
 ||analyticsnew.overwolf.com^
 ||analyticsoverzicht.com^
 ||analyticspixel.microsoft.com^
@@ -36077,8 +36068,6 @@
 ||analyticsq.com^
 ||analyticsq1.com^
 ||analyticsq2.com^
-||analyticsreporting.googleapis.com^
-||analyticssearch-pa.googleapis.com^
 ||analyticssec.overwolf.com^
 ||analyticssuitefrontend-pa.clients6.google.com^
 ||analyticssystems.net^
@@ -36304,8 +36293,6 @@
 ||androidr.com^
 ||androids.com^
 ||androidservicesmng.net^
-||androidtvchannels-pa.googleapis.com^
-||androidtvwatsonfe-pa.googleapis.com^
 ||androidupdate.download^
 ||androidx.com^
 ||androie.com^
@@ -38889,7 +38876,6 @@
 ||appsflyersdk.com^
 ||appsgeyser.com^
 ||appsgrowthpromo-pa.clients6.google.com^
-||appsgrowthpromo-pa.googleapis.com^
 ||appslime.com^
 ||appsontrcks.com^
 ||appsrv.display.io^
@@ -64364,7 +64350,6 @@
 ||clientlogger.marketplace.aws.a2z.com^
 ||clientlogsf.music.163.com^
 ||clientmetrics-augmentum.kik.com^
-||clientmetrics-pa.googleapis.com^
 ||clientmetrics.kik.com^
 ||clientradiourl.com^
 ||clients.journalducameroun.com^
@@ -64375,7 +64360,6 @@
 ||clientstaticserv.com^
 ||clientstats.ntconseil.com^
 ||clientsvogie.com^
-||clienttracing-pa.googleapis.com^
 ||clientweb-whatsapp.com^
 ||clifads.com^
 ||clifbarosterreich.at^
@@ -64779,7 +64763,6 @@
 ||cloudeliverenterprise.com^
 ||cloudeliverrs.com^
 ||cloudenterpriseve.com^
-||clouderrorreporting.googleapis.com^
 ||cloudf1are.com^
 ||cloudfalre.com^
 ||cloudfam-analytics.anshubhardwaj966.workers.dev^
@@ -68535,9 +68518,6 @@
 ||contendfunds.com^
 ||conteneursducoin.com^
 ||content-ad.net^
-||content-analyticsadmin.googleapis.com^
-||content-analyticsdata.googleapis.com^
-||content-analyticsreporting.googleapis.com^
 ||content-cooperation.com^
 ||content-garden.com^
 ||content-hoster.xyz^
@@ -78125,7 +78105,6 @@
 ||diagnoseundertake.com^
 ||diagnosisintriguingorganizer.com^
 ||diagnosisscript.com^
-||diagnostics.googleapis.com^
 ||diagnostics.huedatastore.com^
 ||diagnostics.meethue.com^
 ||diagnostics.rakam.io^
@@ -96913,8 +96892,6 @@
 ||fireads.org^
 ||fireanalytics.firestream.to^
 ||fireballbristleproper.com^
-||firebaselogging-pa.googleapis.com^
-||firebaselogging.googleapis.com^
 ||firecatfilms.com^
 ||firecfox.com^
 ||firecode.fun^
@@ -111998,7 +111975,6 @@
 ||googleadapis.com^
 ||googleads-cn.com^
 ||googleads.com^
-||googleads.googleapis.com^
 ||googleadservices-cn.com^
 ||googleadservices.at^
 ||googleadservices.com.cn^
@@ -116194,7 +116170,6 @@
 ||growoutlier.com^
 ||growsearch.in^
 ||growth-channel.net^
-||growth-pa.googleapis.com^
 ||growth-performance.revolut.com^
 ||growth.nwea.org^
 ||growth.shop^
@@ -165288,7 +165263,6 @@
 ||mobileconfig.sascdn.com^
 ||mobilecontents.mobi^
 ||mobilecore.com^
-||mobilecrashreporting.googleapis.com^
 ||mobiledevel.com^
 ||mobiledl.adboe.com^
 ||mobilefuse.com^
@@ -174449,7 +174423,6 @@
 ||notificationbyfacebook.firebaseapp.com^
 ||notificationbyfacebook.web.app^
 ||notifications.dubsado.com^
-||notifications.googleapis.com^
 ||notifications.ltd^
 ||notifications.viafoura.co^
 ||notifications.website^
@@ -177623,7 +177596,7 @@
 ||og7231kq7.com^
 ||og96.6cuewvb77wjjum9ywutv28lk3by42t.cyou^
 ||ogacle.com^
-||ogads-pa.googleapis.com^
+||ogads-pa.clients6.google.com^
 ||ogads.com^
 ||ogai-store.com^
 ||ogamiya.info^
@@ -190083,7 +190056,6 @@
 ||play-lg.com^
 ||play-lustgoddess.com^
 ||play-regalcasino.fr^
-||play-services-telemetry.googleapis.com^
 ||play-zilla.fr^
 ||play-zini.fr^
 ||play.adtonos.com^
@@ -240737,7 +240709,6 @@
 ||telemetry.getcodegraph.com^
 ||telemetry.gfe.nvidia.com^
 ||telemetry.goodlifefitness.com^
-||telemetry.googleapis.com^
 ||telemetry.graylog.cloud^
 ||telemetry.hack.llc^
 ||telemetry.hanold.online^
@@ -260300,7 +260271,6 @@
 ||vkbprod.112.2o7.net^
 ||vkbutton.com^
 ||vkcdnservice.appspot.com^
-||vkcdnservice.appspot.com.storage.googleapis.com^
 ||vkcdnservice.com^
 ||vkcqxaxtxrftu.online^
 ||vkdenxezhjhgg.site^
@@ -272923,7 +272893,6 @@
 ||xg59.com^
 ||xg5fg.top^
 ||xgal.jp^
-||xgapromomanager-pa.googleapis.com^
 ||xgaxtbrifshmc.website^
 ||xgbmuxkupngbn.website^
 ||xgbox.com^

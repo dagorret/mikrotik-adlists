@@ -1,29 +1,24 @@
 # ==========================
-# Infraestructura crítica
+# Infraestructura crítica & CDNs
 # ==========================
 cloudfront.net
 amazonaws.com
 googleusercontent.com
+googleapis.com
+gstatic.com
 gvt1.com
 gvt2.com
-gstatic.com
 youtube.com
 ytimg.com
 googlevideo.com
+cloudflare.com
+challenges.cloudflare.com
+fastly.net
+akamaihd.net
 
-# Google Ads / Analytics (no bloquear)
-#doubleclick.net
-#googlesyndication.com
-#googleadservices.com
-#googletagmanager.com
-#googletagservices.com
-#analytics.google.com
-#www.google-analytics.com
-ogads-pa.clients6.google.com
-crashlyticsreports-pa.googleapis.com
-federatedcompute-pa.googleapis.com
-
-# Servicios comunes
+# ==========================
+# Servicios de desarrollo & paquetes
+# ==========================
 github.com
 githubusercontent.com
 docker.com
@@ -31,17 +26,9 @@ docker.io
 ubuntu.com
 canonical.com
 
-# CDNs / protección
-cloudflare.com
-challenges.cloudflare.com
-fastly.net
-akamaihd.net
-
-
-# Streaming (TVs, FireTV, Roku, Android TV, SmartTVs)
-# Liberar el dominio raíz garantiza que pasen las métricas 
-# de inicio (logs/analytics) y las CDNs de video HD/4K
-
+# ==========================
+# Streaming & Smart TVs
+# ==========================
 
 # Netflix
 netflix.com
@@ -76,8 +63,9 @@ hbomax.com
 spotify.com
 scdn.co
 
-# Licencias de protección de Video (DRM) y Smart TVs
+# Licencias DRM y Smart TVs (Samsung, LG, Roku)
 widevine.com
+buyadr.com
 samsungqbe.com
 lgtvcommon.com
 roku.com

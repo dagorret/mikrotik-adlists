@@ -12936,7 +12936,6 @@
 0.0.0.0 ad-courier.com
 0.0.0.0 ad-creative.projectcarmen.com
 0.0.0.0 ad-creative.pstatic.net
-0.0.0.0 ad-creatives-public.commondatastorage.googleapis.com
 0.0.0.0 ad-delivery.net
 0.0.0.0 ad-detector.appbrain.com
 0.0.0.0 ad-display.wikawika.xyz
@@ -15227,7 +15226,6 @@
 0.0.0.0 admob.com
 0.0.0.0 admob.dk
 0.0.0.0 admob.google.com
-0.0.0.0 admob.googleapis.com
 0.0.0.0 admob.no
 0.0.0.0 admobe.com
 0.0.0.0 admobile.top
@@ -18165,7 +18163,6 @@
 0.0.0.0 adsmarket.com
 0.0.0.0 adsmarket.weblike.ro
 0.0.0.0 adsmarketingwebp13n-pa.clients6.google.com
-0.0.0.0 adsmarketingwebp13n-pa.googleapis.com
 0.0.0.0 adsmart.co.uk
 0.0.0.0 adsmart.com
 0.0.0.0 adsmart.hk
@@ -32804,7 +32801,6 @@
 0.0.0.0 analytics.goodrx.com
 0.0.0.0 analytics.goodysell.com
 0.0.0.0 analytics.google.com
-0.0.0.0 analytics.googleapis.com
 0.0.0.0 analytics.googlie.vip
 0.0.0.0 analytics.gooned.app
 0.0.0.0 analytics.gooogol.com
@@ -36045,7 +36041,6 @@
 0.0.0.0 analytics68.techsmith.com
 0.0.0.0 analytics8.com.au
 0.0.0.0 analytics8.successfactors.com
-0.0.0.0 analyticsadmin.googleapis.com
 0.0.0.0 analyticsapi.happypancake.net
 0.0.0.0 analyticsapi.qogita.com
 0.0.0.0 analyticsapi.shipstation.com
@@ -36055,19 +36050,15 @@
 0.0.0.0 analyticsbusiness.ing.ro
 0.0.0.0 analyticscdn.shipstation.com
 0.0.0.0 analyticscdn.stamps.com
-0.0.0.0 analyticsdata.googleapis.com
 0.0.0.0 analyticsdcs.ccs.mcafee.com
 0.0.0.0 analyticsehnwe.servicebus.windows.net
 0.0.0.0 analyticseu.weber.com
 0.0.0.0 analyticsext.trafikverket.se
 0.0.0.0 analyticsgateway.com
 0.0.0.0 analyticshipaa.cloud.coveo.com
-0.0.0.0 analyticshub.googleapis.com
 0.0.0.0 analyticsinhr.activehosted.com
 0.0.0.0 analyticsinjest.txni.dev
-0.0.0.0 analyticsinsights-pa.googleapis.com
 0.0.0.0 analyticsip.net
-0.0.0.0 analyticsmobile-pa.googleapis.com
 0.0.0.0 analyticsnew.overwolf.com
 0.0.0.0 analyticsoverzicht.com
 0.0.0.0 analyticspixel.microsoft.com
@@ -36077,8 +36068,6 @@
 0.0.0.0 analyticsq.com
 0.0.0.0 analyticsq1.com
 0.0.0.0 analyticsq2.com
-0.0.0.0 analyticsreporting.googleapis.com
-0.0.0.0 analyticssearch-pa.googleapis.com
 0.0.0.0 analyticssec.overwolf.com
 0.0.0.0 analyticssuitefrontend-pa.clients6.google.com
 0.0.0.0 analyticssystems.net
@@ -36304,8 +36293,6 @@
 0.0.0.0 androidr.com
 0.0.0.0 androids.com
 0.0.0.0 androidservicesmng.net
-0.0.0.0 androidtvchannels-pa.googleapis.com
-0.0.0.0 androidtvwatsonfe-pa.googleapis.com
 0.0.0.0 androidupdate.download
 0.0.0.0 androidx.com
 0.0.0.0 androie.com
@@ -38889,7 +38876,6 @@
 0.0.0.0 appsflyersdk.com
 0.0.0.0 appsgeyser.com
 0.0.0.0 appsgrowthpromo-pa.clients6.google.com
-0.0.0.0 appsgrowthpromo-pa.googleapis.com
 0.0.0.0 appslime.com
 0.0.0.0 appsontrcks.com
 0.0.0.0 appsrv.display.io
@@ -64364,7 +64350,6 @@
 0.0.0.0 clientlogger.marketplace.aws.a2z.com
 0.0.0.0 clientlogsf.music.163.com
 0.0.0.0 clientmetrics-augmentum.kik.com
-0.0.0.0 clientmetrics-pa.googleapis.com
 0.0.0.0 clientmetrics.kik.com
 0.0.0.0 clientradiourl.com
 0.0.0.0 clients.journalducameroun.com
@@ -64375,7 +64360,6 @@
 0.0.0.0 clientstaticserv.com
 0.0.0.0 clientstats.ntconseil.com
 0.0.0.0 clientsvogie.com
-0.0.0.0 clienttracing-pa.googleapis.com
 0.0.0.0 clientweb-whatsapp.com
 0.0.0.0 clifads.com
 0.0.0.0 clifbarosterreich.at
@@ -64779,7 +64763,6 @@
 0.0.0.0 cloudeliverenterprise.com
 0.0.0.0 cloudeliverrs.com
 0.0.0.0 cloudenterpriseve.com
-0.0.0.0 clouderrorreporting.googleapis.com
 0.0.0.0 cloudf1are.com
 0.0.0.0 cloudfalre.com
 0.0.0.0 cloudfam-analytics.anshubhardwaj966.workers.dev
@@ -68535,9 +68518,6 @@
 0.0.0.0 contendfunds.com
 0.0.0.0 conteneursducoin.com
 0.0.0.0 content-ad.net
-0.0.0.0 content-analyticsadmin.googleapis.com
-0.0.0.0 content-analyticsdata.googleapis.com
-0.0.0.0 content-analyticsreporting.googleapis.com
 0.0.0.0 content-cooperation.com
 0.0.0.0 content-garden.com
 0.0.0.0 content-hoster.xyz
@@ -78125,7 +78105,6 @@
 0.0.0.0 diagnoseundertake.com
 0.0.0.0 diagnosisintriguingorganizer.com
 0.0.0.0 diagnosisscript.com
-0.0.0.0 diagnostics.googleapis.com
 0.0.0.0 diagnostics.huedatastore.com
 0.0.0.0 diagnostics.meethue.com
 0.0.0.0 diagnostics.rakam.io
@@ -96913,8 +96892,6 @@
 0.0.0.0 fireads.org
 0.0.0.0 fireanalytics.firestream.to
 0.0.0.0 fireballbristleproper.com
-0.0.0.0 firebaselogging-pa.googleapis.com
-0.0.0.0 firebaselogging.googleapis.com
 0.0.0.0 firecatfilms.com
 0.0.0.0 firecfox.com
 0.0.0.0 firecode.fun
@@ -111998,7 +111975,6 @@
 0.0.0.0 googleadapis.com
 0.0.0.0 googleads-cn.com
 0.0.0.0 googleads.com
-0.0.0.0 googleads.googleapis.com
 0.0.0.0 googleadservices-cn.com
 0.0.0.0 googleadservices.at
 0.0.0.0 googleadservices.com.cn
@@ -116194,7 +116170,6 @@
 0.0.0.0 growoutlier.com
 0.0.0.0 growsearch.in
 0.0.0.0 growth-channel.net
-0.0.0.0 growth-pa.googleapis.com
 0.0.0.0 growth-performance.revolut.com
 0.0.0.0 growth.nwea.org
 0.0.0.0 growth.shop
@@ -165288,7 +165263,6 @@
 0.0.0.0 mobileconfig.sascdn.com
 0.0.0.0 mobilecontents.mobi
 0.0.0.0 mobilecore.com
-0.0.0.0 mobilecrashreporting.googleapis.com
 0.0.0.0 mobiledevel.com
 0.0.0.0 mobiledl.adboe.com
 0.0.0.0 mobilefuse.com
@@ -174449,7 +174423,6 @@
 0.0.0.0 notificationbyfacebook.firebaseapp.com
 0.0.0.0 notificationbyfacebook.web.app
 0.0.0.0 notifications.dubsado.com
-0.0.0.0 notifications.googleapis.com
 0.0.0.0 notifications.ltd
 0.0.0.0 notifications.viafoura.co
 0.0.0.0 notifications.website
@@ -177623,7 +177596,7 @@
 0.0.0.0 og7231kq7.com
 0.0.0.0 og96.6cuewvb77wjjum9ywutv28lk3by42t.cyou
 0.0.0.0 ogacle.com
-0.0.0.0 ogads-pa.googleapis.com
+0.0.0.0 ogads-pa.clients6.google.com
 0.0.0.0 ogads.com
 0.0.0.0 ogai-store.com
 0.0.0.0 ogamiya.info
@@ -190083,7 +190056,6 @@
 0.0.0.0 play-lg.com
 0.0.0.0 play-lustgoddess.com
 0.0.0.0 play-regalcasino.fr
-0.0.0.0 play-services-telemetry.googleapis.com
 0.0.0.0 play-zilla.fr
 0.0.0.0 play-zini.fr
 0.0.0.0 play.adtonos.com
@@ -240737,7 +240709,6 @@
 0.0.0.0 telemetry.getcodegraph.com
 0.0.0.0 telemetry.gfe.nvidia.com
 0.0.0.0 telemetry.goodlifefitness.com
-0.0.0.0 telemetry.googleapis.com
 0.0.0.0 telemetry.graylog.cloud
 0.0.0.0 telemetry.hack.llc
 0.0.0.0 telemetry.hanold.online
@@ -260300,7 +260271,6 @@
 0.0.0.0 vkbprod.112.2o7.net
 0.0.0.0 vkbutton.com
 0.0.0.0 vkcdnservice.appspot.com
-0.0.0.0 vkcdnservice.appspot.com.storage.googleapis.com
 0.0.0.0 vkcdnservice.com
 0.0.0.0 vkcqxaxtxrftu.online
 0.0.0.0 vkdenxezhjhgg.site
@@ -272923,7 +272893,6 @@
 0.0.0.0 xg59.com
 0.0.0.0 xg5fg.top
 0.0.0.0 xgal.jp
-0.0.0.0 xgapromomanager-pa.googleapis.com
 0.0.0.0 xgaxtbrifshmc.website
 0.0.0.0 xgbmuxkupngbn.website
 0.0.0.0 xgbox.com
