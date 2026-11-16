@@ -1,0 +1,46 @@
+! Whitelist para AdGuard Home (sintaxis @@||dominio^: permite el dominio y sus subdominios)
+! Titulo: Whitelist Carlos
+!
+! ==========================
+! Infraestructura critica & CDNs
+! ==========================
+@@||cloudfront.net^
+@@||amazonaws.com^
+@@||google.com^
+@@||googleusercontent.com^
+@@||googleapis.com^
+@@||gstatic.com^
+@@||gvt1.com^
+@@||gvt2.com^
+@@||youtube.com^
+@@||ytimg.com^
+@@||googlevideo.com^
+@@||cloudflare.com^
+@@||challenges.cloudflare.com^
+@@||fastly.net^
+@@||akamaihd.net^
+
+! ==========================
+! Servicios de desarrollo & paquetes
+! ==========================
+@@||github.com^
+@@||githubusercontent.com^
+@@||docker.com^
+@@||docker.io^
+@@||ubuntu.com^
+@@||canonical.com^
+
+! ==========================
+! Streaming & Smart TVs
+! ==========================
+
+! Netflix
+@@||netflix.com^
+@@||netflix.net^
+@@||nflximg.net^
+@@||nflxext.com^
+@@||nflxso.net^
+@@||nflxvideo.net^
+
+! Disney+ / Star+
+@@||disneyplus.com^
