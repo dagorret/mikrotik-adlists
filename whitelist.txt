@@ -1,95 +1,48 @@
-# ==========================
-# Infraestructura crítica & CDNs
-# ==========================
-cloudfront.net
-amazonaws.com
-google.com
-googleusercontent.com
-googleapis.com
-gstatic.com
-gvt1.com
-gvt2.com
-youtube.com
-ytimg.com
-googlevideo.com
-cloudflare.com
-challenges.cloudflare.com
-fastly.net
-akamaihd.net
-
-# ==========================
-# Servicios de desarrollo & paquetes
-# ==========================
-github.com
-githubusercontent.com
-docker.com
-docker.io
-ubuntu.com
-canonical.com
-
-# ==========================
-# Streaming & Smart TVs
-# ==========================
-
-# Netflix
-netflix.com
-netflix.net
-nflximg.net
-nflxext.com
-nflxso.net
-nflxvideo.net
-
-# Disney+ / Star+
-disneyplus.com
-disney.com
-bamgrid.com
-
-# Paramount+ / Pluto TV
-paramountplus.com
-paramount.com
-cbsinteractive.com
-cbsaavideo.com
-pluto.tv
-
-# Amazon Prime Video
-primevideo.com
-amazonvideo.com
-pv-cdn.net
-
-# HBO / Max
-max.com
-hbomax.com
-
-# Spotify
-spotify.com
-scdn.co
-
-# Licencias DRM y Smart TVs (Samsung, LG, Roku)
-widevine.com
-buyadr.com
-samsungqbe.com
-lgtvcommon.com
-roku.com
-
-# ==========================
-# OpenAI / ChatGPT / Claude
-# ==========================
-chatgpt.com
-openai.com
-oaistatic.com
-oaiusercontent.com
-claude.ai
-anthropic.com
-
-# ==========================
-# Juegos móviles & Recompensas (Mobile Ads/Auth)
-# ==========================
-doubleclick.net
-googlesyndication.com
-unity3d.com
-unityservices.com
-applovin.com
-applvn.com
-vungle.com
-ironsrc.com
-is.com
+@@||cloudfront.net^
+@@||amazonaws.com^
+@@||google.com^
+@@||googleusercontent.com^
+@@||googleapis.com^
+@@||gstatic.com^
+@@||gvt1.com^
+@@||gvt2.com^
+@@||youtube.com^
+@@||ytimg.com^
+@@||googlevideo.com^
+@@||cloudflare.com^
+@@||challenges.cloudflare.com^
+@@||fastly.net^
+@@||akamaihd.net^
+@@||github.com^
+@@||githubusercontent.com^
+@@||docker.com^
+@@||docker.io^
+@@||ubuntu.com^
+@@||canonical.com^
+@@||netflix.com^
+@@||netflix.net^
+@@||nflximg.net^
+@@||nflxext.com^
+@@||nflxso.net^
+@@||nflxvideo.net^
+@@||disneyplus.com^
+@@||disney.com^
+@@||bamgrid.com^
+@@||paramountplus.com^
+@@||paramount.com^
+@@||cbsinteractive.com^
+@@||cbsaavideo.com^
+@@||pluto.tv^
+@@||primevideo.com^
+@@||amazonvideo.com^
+@@||pv-cdn.net^
+@@||max.com^
+@@||hbomax.com^
+@@||spotify.com^
+@@||scdn.co^
+@@||widevine.com^
+@@||buyadr.com^
+@@||samsungqbe.com^
+@@||lgtvcommon.com^
+@@||roku.com^
+@@||chatgpt.com^
